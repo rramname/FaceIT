@@ -1,0 +1,48 @@
+#imgDiv{
+    position: absolute;
+    background-repeat: no-repeat;
+    border: 1px solid #bbb;
+    border: solid;
+    background-color: cadetblue;
+    left: 100px;
+    top:200px;
+
+}
+#face{
+    position: absolute;
+    border:solid;
+    
+}
+
+
+#titleDiv{
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: -webkit-xxx-large;
+    background-color: black;
+    color: sandybrown;
+    font-family: sans-serif;
+}
+
+fileUpload-label{
+    background: aqua;
+}
+.fileUpload {
+    
+    width: 225px;
+    padding: 14px 0;
+    cursor: pointer;
+}
+.fileUpload-trigger {
+    display: block;
+    padding: 14px 45px;
+    background: #39D2B4;
+    color: #fff;
+    font-size: 1em;
+    transition: all .4s;
+    cursor: pointer;
+}
+
+  
