@@ -16,7 +16,6 @@
     
 }
 
-
 #titleDiv{
     height: 100px;
     display: flex;
@@ -28,10 +27,6 @@
     font-family: sans-serif;
 }
 
-#content{
-
-    
-}
 .upload-btn-wrapper {
     position: relative;
     overflow: hidden;
