@@ -4,9 +4,14 @@
     Welcome to {{ title }}
   </div>
   <div id="content">
-    <div class="fileUpload">
+    <!-- <div class="fileUploadWrapper">
         <input type="file" class="fileUpload" id="fileUpload" #fileInput (change)="fileChange($event)">
         
+    </div> -->
+
+    <div class="upload-btn-wrapper">
+      <button class="btn" >Upload a file</button>
+      <input type="file" name="myfile" (change)="fileChange($event)"/>
     </div>
 
   <div id="imgDiv"><img class="imageContainer" [src]="localUrl" >  <div id="face"></div></div>

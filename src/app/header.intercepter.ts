@@ -14,7 +14,6 @@ export class HeaderIntercepter implements HttpInterceptor {
         let request=req.clone({
             setHeaders:{
                 'Content-Type':'application/octet-stream',
-                'Ocp-Apim-Subscription-Key':''
             }
         })
 

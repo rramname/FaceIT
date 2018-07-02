@@ -23,18 +23,19 @@ export class AppComponent {
       let reader = new FileReader();
       reader.onload = (event: any) => {
         this.localUrl = event.target.result;
-        return this.httpClient.post("https://eastus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceAttributes=age,glasses,emotion",file)
-        .subscribe((face)=>{
-          console.log(face);
-            document.getElementById("face").style.left=face[0].faceRectangle.left+"px";
-            document.getElementById("face").style.top=face[0].faceRectangle.top+"px";
-            document.getElementById("face").style.width=face[0].faceRectangle.width+"px";
-            document.getElementById("face").style.height=face[0].faceRectangle.height+"px";
+        
+        this.appService.detectFaces(file).subscribe((face)=>{
+            this.pointFace(face);
         })
     }
     reader.readAsDataURL(event.target.files[0]);
     }
-
+  }
+  private pointFace(face){
+            document.getElementById("face").style.left=face[0].faceRectangle.left+"px";
+            document.getElementById("face").style.top=face[0].faceRectangle.top+"px";
+            document.getElementById("face").style.width=face[0].faceRectangle.width+"px";
+            document.getElementById("face").style.height=face[0].faceRectangle.height+"px";
   }
   title = 'Face-it';
   localUrl:string="";

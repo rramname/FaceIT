@@ -6,7 +6,9 @@
     background-color: cadetblue;
     left: 100px;
     top:200px;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 #face{
     position: absolute;
@@ -26,23 +28,36 @@
     font-family: sans-serif;
 }
 
-fileUpload-label{
-    background: aqua;
-}
-.fileUpload {
+#content{
+
     
-    width: 225px;
-    padding: 14px 0;
-    cursor: pointer;
 }
-.fileUpload-trigger {
-    display: block;
-    padding: 14px 45px;
-    background: #39D2B4;
-    color: #fff;
-    font-size: 1em;
-    transition: all .4s;
-    cursor: pointer;
-}
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    padding: 2%;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .btn {
+    border: 2px solid gray;
+    color:white;
+    background-color:brown;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
 
   
