@@ -14,7 +14,8 @@
       <input type="file" name="myfile" (change)="fileChange($event)"/>
     </div>
 
-  <div id="imgDiv"><img class="imageContainer" [src]="localUrl" >  <div id="face"></div></div>
+  <div  id="imgDiv"><img class="imageContainer" [src]="localUrl" >  <div  id="face"></div></div>
+  <div *ngIf="error">{{errorMsg}}</div>
 </div>
   
 </div>
