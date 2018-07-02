@@ -8,6 +8,7 @@ const port=process.env.PORT || 3000
 
 const app=express();
 
+const API_KEY=process.env.Sub_KEY
 app.use(cors());
 app.use(express.static("ui"))
 app.post("/getFaceData",function(req,resp){
@@ -18,7 +19,7 @@ app.post("/getFaceData",function(req,resp){
         method:'POST',
         headers:{
             'Content-Type':'application/octet-stream',
-            'Ocp-Apim-Subscription-Key':'c4f4f912aa61409e8794b34afeb42ea9'
+            'Ocp-Apim-Subscription-Key':API_KEY
         }
     }
     request.post(options,(req,response)=>{
