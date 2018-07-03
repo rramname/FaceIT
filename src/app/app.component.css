@@ -1,21 +1,48 @@
+#containerDiv{
+    display: grid;
+    align-items: center;
+    grid-template-areas: 
+    "header"
+    "button"
+    "chars"
+    "image"
+}
+
 #imgDiv{
-    position: absolute;
+    
     background-repeat: no-repeat;
     border: 1px solid #bbb;
     border: solid;
     background-color: cadetblue;
-    left: 100px;
-    top:200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    grid-area: image;
+    margin-left: auto;
+    margin-right: auto;
+    
+    right: 0;
+    top:30%;
 }
 #face{
     position: absolute;
     border:solid;
     
 }
-
+#charaDiv{
+    display: flex;
+    top:30%;
+    justify-content: center;
+    align-items: center;
+    grid-area: chars;
+    font-size: xx-large;
+    
+}
+#error{
+    display: flex;
+    top:30%;
+    justify-content: center;
+    align-items: center;
+    grid-area: chars;
+    font-size: xx-large;
+}
 #titleDiv{
     height: 100px;
     display: flex;
@@ -25,6 +52,7 @@
     background-color: black;
     color: sandybrown;
     font-family: sans-serif;
+    grid-area: header;
 }
 
 .upload-btn-wrapper {
@@ -35,6 +63,7 @@
     width: 100vw;
     display: flex;
     justify-content: center;
+    grid-area: button
   }
   
   .btn {

@@ -27,7 +27,7 @@ export class AppComponent {
 
           this.appService.detectFaces(file).subscribe(
             (face) => {
-              this.faceData = face;
+              this.faceData = face[0];
               console.log(this.faceData);
               this.pointFace(face);
             },
@@ -42,8 +42,13 @@ export class AppComponent {
     }
   }
   private pointFace(face) {
-    document.getElementById("face").style.left = face[0].faceRectangle.left + "px";
-    document.getElementById("face").style.top = face[0].faceRectangle.top + "px";
+    
+    let oleft=document.getElementById("imageContainer").offsetLeft;
+
+    let otop=document.getElementById("imageContainer").offsetTop;
+    
+    document.getElementById("face").style.left = oleft+face[0].faceRectangle.left + "px";
+    document.getElementById("face").style.top = otop+face[0].faceRectangle.top + "px";
     document.getElementById("face").style.width = face[0].faceRectangle.width + "px";
     document.getElementById("face").style.height = face[0].faceRectangle.height + "px";
   }
@@ -59,7 +64,7 @@ export class AppComponent {
       else
       return true;
   }
-  title = 'Face-it';
+  title = 'Face-it NOW';
   faceData: any;
   error: any;
   errorMsg: string = "";

@@ -4,9 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
-    "dev":"npm-run-all --sequential  serve start",
+    "dev": "npm-run-all --sequential  serve start",
     "build": "ng build",
-    "serve":"ng serve -o",
+    "serve": "ng serve -o",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

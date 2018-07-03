@@ -10,6 +10,6 @@ export class ApicallerService {
   constructor(private http:HttpClient) { }
 
   detectFaces(data):Observable<any>{
-     return this.http.post("https://faceapicaller.herokuapp.com/getFaceData",data)
+     return this.http.post("https://faceitnow.herokuapp.com/getFaceData",data)
   }
 }

@@ -51,7 +51,7 @@ var ApicallerService = /** @class */ (function () {
         this.http = http;
     }
     ApicallerService.prototype.detectFaces = function (data) {
-        return this.http.post("https://faceapicaller.herokuapp.com/getFaceData", data);
+        return this.http.post("https://faceitnow.herokuapp.com/getFaceData", data);
     };
     ApicallerService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -73,7 +73,7 @@ var ApicallerService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "#imgDiv{\r\n    position: absolute;\r\n    background-repeat: no-repeat;\r\n    border: 1px solid #bbb;\r\n    border: solid;\r\n    background-color: cadetblue;\r\n    left: 100px;\r\n    top:200px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n#face{\r\n    position: absolute;\r\n    border:solid;\r\n    \r\n}\r\n#titleDiv{\r\n    height: 100px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    font-size: -webkit-xxx-large;\r\n    background-color: black;\r\n    color: sandybrown;\r\n    font-family: sans-serif;\r\n}\r\n.upload-btn-wrapper {\r\n    position: relative;\r\n    overflow: hidden;\r\n    display: inline-block;\r\n    padding: 2%;\r\n    width: 100vw;\r\n    display: flex;\r\n    justify-content: center;\r\n  }\r\n.btn {\r\n    border: 2px solid gray;\r\n    color:white;\r\n    background-color:brown;\r\n    padding: 8px 20px;\r\n    border-radius: 8px;\r\n    font-size: 20px;\r\n    font-weight: bold;\r\n  }\r\n.upload-btn-wrapper input[type=file] {\r\n    font-size: 100px;\r\n    position: absolute;\r\n    left: 0;\r\n    top: 0;\r\n    opacity: 0;\r\n  }\r\n\r\n  "
+module.exports = "#containerDiv{\r\n    display: -ms-grid;\r\n    display: grid;\r\n    align-items: center;\r\n        grid-template-areas: \r\n    \"header\"\r\n    \"button\"\r\n    \"chars\"\r\n    \"image\"\r\n}\r\n\r\n#imgDiv{\r\n    \r\n    background-repeat: no-repeat;\r\n    border: 1px solid #bbb;\r\n    border: solid;\r\n    background-color: cadetblue;\r\n    -ms-grid-row: 4;\r\n    -ms-grid-column: 1;\r\n    grid-area: image;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    \r\n    right: 0;\r\n    top:30%;\r\n}\r\n\r\n#face{\r\n    position: absolute;\r\n    border:solid;\r\n    \r\n}\r\n\r\n#charaDiv{\r\n    display: flex;\r\n    top:30%;\r\n    justify-content: center;\r\n    align-items: center;\r\n    -ms-grid-row: 3;\r\n    -ms-grid-column: 1;\r\n    grid-area: chars;\r\n    font-size: xx-large;\r\n    \r\n}\r\n\r\n#error{\r\n    display: flex;\r\n    top:30%;\r\n    justify-content: center;\r\n    align-items: center;\r\n    -ms-grid-row: 3;\r\n    -ms-grid-column: 1;\r\n    grid-area: chars;\r\n    font-size: xx-large;\r\n}\r\n\r\n#titleDiv{\r\n    height: 100px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    font-size: -webkit-xxx-large;\r\n    background-color: black;\r\n    color: sandybrown;\r\n    font-family: sans-serif;\r\n    -ms-grid-row: 1;\r\n    -ms-grid-column: 1;\r\n    grid-area: header;\r\n}\r\n\r\n.upload-btn-wrapper {\r\n    position: relative;\r\n    overflow: hidden;\r\n    display: inline-block;\r\n    padding: 2%;\r\n    width: 100vw;\r\n    display: flex;\r\n    justify-content: center;\r\n    -ms-grid-row: 2;\r\n    -ms-grid-column: 1;\r\n    grid-area: button\r\n  }\r\n\r\n.btn {\r\n    border: 2px solid gray;\r\n    color:white;\r\n    background-color:brown;\r\n    padding: 8px 20px;\r\n    border-radius: 8px;\r\n    font-size: 20px;\r\n    font-weight: bold;\r\n  }\r\n\r\n.upload-btn-wrapper input[type=file] {\r\n    font-size: 100px;\r\n    position: absolute;\r\n    left: 0;\r\n    top: 0;\r\n    opacity: 0;\r\n  }\r\n\r\n  "
 
 /***/ }),
 
@@ -84,7 +84,7 @@ module.exports = "#imgDiv{\r\n    position: absolute;\r\n    background-repeat: 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div id=\"containerDiv\" class=\"js\">\n  <div id=\"titleDiv\">\n    Welcome to {{ title }}\n  </div>\n  <div id=\"content\">\n    <!-- <div class=\"fileUploadWrapper\">\n        <input type=\"file\" class=\"fileUpload\" id=\"fileUpload\" #fileInput (change)=\"fileChange($event)\">\n        \n    </div> -->\n\n    <div class=\"upload-btn-wrapper\">\n      <button class=\"btn\" >Upload a file</button>\n      <input type=\"file\" name=\"myfile\" (change)=\"fileChange($event)\"/>\n    </div>\n\n  <div id=\"imgDiv\"><img class=\"imageContainer\" [src]=\"localUrl\" >  <div id=\"face\"></div></div>\n</div>\n  \n</div>\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n<div id=\"containerDiv\" class=\"js\">\r\n  <div id=\"titleDiv\">\r\n    Welcome to {{ title }}\r\n  </div>\r\n  \r\n    <!-- <div class=\"fileUploadWrapper\">\r\n        <input type=\"file\" class=\"fileUpload\" id=\"fileUpload\" #fileInput (change)=\"fileChange($event)\">\r\n        \r\n    </div> -->\r\n\r\n    <div class=\"upload-btn-wrapper\">\r\n      <button class=\"btn\" >Upload a file</button>\r\n      <input type=\"file\" name=\"myfile\" (change)=\"fileChange($event)\"/>\r\n    </div>\r\n    <div id=\"charaDiv\" *ngIf=\"faceData\">\r\n        <ul>\r\n          <li>You look awesome at age {{faceData.faceAttributes.age}}</li>\r\n          <li><div *ngIf=\"faceData.faceAttributes.glasses=='NoGlasses'; else glasses\">Good that you dont have glasses yet!</div>\r\n              <ng-template #glasses>Those {{faceData.faceAttributes.glasses}} look great on you.</ng-template> </li> \r\n          \r\n          \r\n        </ul>\r\n    </div>\r\n  <div  id=\"imgDiv\"><img id=\"imageContainer\" [src]=\"localUrl\" >  <div  id=\"face\"></div></div>\r\n  <div *ngIf=\"error\" id=\"error\">{{errorMsg}}</div>\r\n\r\n  \r\n</div>\r\n"
 
 /***/ }),
 
@@ -117,7 +117,8 @@ var AppComponent = /** @class */ (function () {
     function AppComponent(appService, httpClient) {
         this.appService = appService;
         this.httpClient = httpClient;
-        this.title = 'Face-it';
+        this.title = 'Face-it NOW';
+        this.errorMsg = "";
         this.localUrl = "";
     }
     AppComponent.prototype.ngOnInit = function () {
@@ -126,21 +127,38 @@ var AppComponent = /** @class */ (function () {
         var _this = this;
         if (event.target.files && event.target.files.length > 0) {
             var file_1 = event.target.files[0];
-            var reader = new FileReader();
-            reader.onload = function (event) {
-                _this.localUrl = event.target.result;
-                _this.appService.detectFaces(file_1).subscribe(function (face) {
-                    _this.pointFace(face);
-                });
-            };
-            reader.readAsDataURL(event.target.files[0]);
+            if (this.validateFile(file_1)) {
+                var reader = new FileReader();
+                reader.onload = function (event) {
+                    _this.localUrl = event.target.result;
+                    _this.appService.detectFaces(file_1).subscribe(function (face) {
+                        _this.faceData = face[0];
+                        console.log(_this.faceData);
+                        _this.pointFace(face);
+                    }, function (error) { _this.error = error; _this.errorMsg = "error occured"; });
+                };
+                reader.readAsDataURL(event.target.files[0]);
+            }
+        }
+        else {
         }
     };
     AppComponent.prototype.pointFace = function (face) {
-        document.getElementById("face").style.left = face[0].faceRectangle.left + "px";
-        document.getElementById("face").style.top = face[0].faceRectangle.top + "px";
+        var oleft = document.getElementById("imageContainer").offsetLeft;
+        var otop = document.getElementById("imageContainer").offsetTop;
+        document.getElementById("face").style.left = oleft + face[0].faceRectangle.left + "px";
+        document.getElementById("face").style.top = otop + face[0].faceRectangle.top + "px";
         document.getElementById("face").style.width = face[0].faceRectangle.width + "px";
         document.getElementById("face").style.height = face[0].faceRectangle.height + "px";
+    };
+    AppComponent.prototype.validateFile = function (file) {
+        if (file.type !== "image/png") {
+            this.error = true;
+            this.errorMsg = "File format not supported.";
+            return false;
+        }
+        else
+            return true;
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('fileInput'),
@@ -322,7 +340,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Rohit\RnD\FaceIt\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Rohit\RnD\FaceITNow\faceIT\src\main.ts */"./src/main.ts");
 
 
 /***/ })
