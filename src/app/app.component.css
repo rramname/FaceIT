@@ -85,4 +85,8 @@
     opacity: 0;
   }
 
-  
+  #help{
+    display: flex;
+    ALIGN-SELF: center;
+    margin-left: 1%;
+  }

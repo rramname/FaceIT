@@ -12,6 +12,7 @@
     <div class="upload-btn-wrapper">
       <button class="btn" >Upload a file</button>
       <input type="file" name="myfile" (change)="fileChange($event)"/>
+      <span id="help">Only .PNG files are supported.</span>
     </div>
     <div id="charaDiv" *ngIf="faceData">
         <ul>
