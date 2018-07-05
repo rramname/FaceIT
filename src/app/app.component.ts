@@ -17,7 +17,8 @@ export class AppComponent {
 
   }
   fileChange(event: any) {
-
+    this.error=false;
+    this.faceData=null;
     if (event.target.files && event.target.files.length > 0) {
       let file = event.target.files[0];
       if (this.validateFile(file)) {
@@ -29,7 +30,8 @@ export class AppComponent {
             (face) => {
               this.faceData = face[0];
               console.log(this.faceData);
-              this.pointFace(face);
+              setTimeout(()=>this.pointFace(face),2000);
+              
             },
             error => { this.error = error; this.errorMsg = "error occured" }
           )
@@ -42,23 +44,19 @@ export class AppComponent {
     }
   }
   private pointFace(face) {
-    
     let oleft=document.getElementById("imageContainer").offsetLeft;
-
     let otop=document.getElementById("imageContainer").offsetTop;
-    
     document.getElementById("face").style.left = oleft+face[0].faceRectangle.left + "px";
     document.getElementById("face").style.top = otop+face[0].faceRectangle.top + "px";
     document.getElementById("face").style.width = face[0].faceRectangle.width + "px";
     document.getElementById("face").style.height = face[0].faceRectangle.height + "px";
+    
   }
   private validateFile(file:any):boolean{
     if(file.type!=="image/png")
     {
-      
       this.error=true;
       this.errorMsg="File format not supported."
-      
       return false;
     }
       else

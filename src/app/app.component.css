@@ -27,13 +27,14 @@
     
 }
 #charaDiv{
-    display: flex;
+    display: inline;
     top:30%;
+    position: absolute;
     justify-content: center;
     align-items: center;
     grid-area: chars;
     font-size: xx-large;
-    
+    background: blanchedalmond;
 }
 #error{
     display: flex;

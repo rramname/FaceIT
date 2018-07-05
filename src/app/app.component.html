@@ -22,7 +22,7 @@
           
         </ul>
     </div>
-  <div  id="imgDiv"><img id="imageContainer" [src]="localUrl" >  <div  id="face"></div></div>
+  <div  *ngIf="this.faceData" id="imgDiv"><img id="imageContainer" [src]="localUrl" >  <div  *ngIf="this.faceData" id="face"></div></div>
   <div *ngIf="error" id="error">{{errorMsg}}</div>
 
   
