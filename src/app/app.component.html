@@ -19,11 +19,14 @@
           <li>You look awesome at age {{faceData.faceAttributes.age}}</li>
           <li><div *ngIf="faceData.faceAttributes.glasses=='NoGlasses'; else glasses">Good that you dont have glasses yet!</div>
               <ng-template #glasses>Those {{faceData.faceAttributes.glasses}} look great on you.</ng-template> </li> 
-          
-          
         </ul>
     </div>
-  <div  *ngIf="this.faceData" id="imgDiv"><img id="imageContainer" [src]="localUrl" >  <div  *ngIf="this.faceData" id="face"></div></div>
+  <div  id="imgDiv">
+      <img id="imageContainer" [src]="localUrl" > 
+        <div *ngFor="let face of allFaces"> 
+          <div class="faceClass" id="{{face.faceId}}" [style.left.px]="face.faceLeft" [style.top.px]="face.faceTop" [style.width.px]= "face.faceWidth" [style.height.px]="face.faceHeight" ></div>
+        </div>
+      </div>
   <div *ngIf="error" id="error">{{errorMsg}}</div>
 
   
