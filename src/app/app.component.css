@@ -3,7 +3,7 @@
     align-items: center;
     grid-template-areas: 
     "header"
-    "button"
+  
     "chars"
     "image"
 }
@@ -13,7 +13,7 @@
     background-repeat: no-repeat;
     border: 1px solid #bbb;
     border: solid;
-    background-color: cadetblue;
+    
     grid-area: image;
     margin-left: auto;
     margin-right: auto;
@@ -27,14 +27,19 @@
     
 }
 #charaDiv{
-    display: inline;
-    top:30%;
+    
+    top:30%;    
     position: absolute;
     justify-content: center;
     align-items: center;
     grid-area: chars;
     font-size: xx-large;
-    background: blanchedalmond;
+    background-color: #acd8ff;
+    height: auto;
+    width: auto;
+    left: 10%;
+    color: crimson;
+    padding: 1%
 }
 #error{
     display: flex;
@@ -56,16 +61,6 @@
     grid-area: header;
 }
 
-.upload-btn-wrapper {
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
-    padding: 2%;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    grid-area: button
-  }
   
   .btn {
     border: 2px solid gray;
@@ -76,17 +71,32 @@
     font-size: 20px;
     font-weight: bold;
   }
-  
-  .upload-btn-wrapper input[type=file] {
-    font-size: 100px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-  }
+
 
   #help{
     display: flex;
     ALIGN-SELF: center;
     margin-left: 1%;
+  }
+
+  .tagClass{
+    position: absolute;
+      border: solid 2px green;
+  }
+
+  #fileCtrl{
+        display: flex;
+        justify-content: center;
+        margin: 1%;
+  }
+
+  #fileContainer{
+      position: absolute;
+  }
+
+  .footer{
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      border-top: solid
   }

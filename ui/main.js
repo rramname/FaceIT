@@ -73,7 +73,7 @@ var ApicallerService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "#containerDiv{\r\n    display: -ms-grid;\r\n    display: grid;\r\n    align-items: center;\r\n        grid-template-areas: \r\n    \"header\"\r\n    \"button\"\r\n    \"chars\"\r\n    \"image\"\r\n}\r\n\r\n#imgDiv{\r\n    \r\n    background-repeat: no-repeat;\r\n    border: 1px solid #bbb;\r\n    border: solid;\r\n    background-color: cadetblue;\r\n    -ms-grid-row: 4;\r\n    -ms-grid-column: 1;\r\n    grid-area: image;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    \r\n    right: 0;\r\n    top:30%;\r\n}\r\n\r\n.faceClass{\r\n    position: absolute;\r\n    border:solid;\r\n    \r\n}\r\n\r\n#charaDiv{\r\n    display: inline;\r\n    top:30%;\r\n    position: absolute;\r\n    justify-content: center;\r\n    align-items: center;\r\n    -ms-grid-row: 3;\r\n    -ms-grid-column: 1;\r\n    grid-area: chars;\r\n    font-size: xx-large;\r\n    background: blanchedalmond;\r\n}\r\n\r\n#error{\r\n    display: flex;\r\n    top:30%;\r\n    justify-content: center;\r\n    align-items: center;\r\n    -ms-grid-row: 3;\r\n    -ms-grid-column: 1;\r\n    grid-area: chars;\r\n    font-size: xx-large;\r\n}\r\n\r\n#titleDiv{\r\n    height: 100px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    font-size: -webkit-xxx-large;\r\n    background-color: black;\r\n    color: sandybrown;\r\n    font-family: sans-serif;\r\n    -ms-grid-row: 1;\r\n    -ms-grid-column: 1;\r\n    grid-area: header;\r\n}\r\n\r\n.upload-btn-wrapper {\r\n    position: relative;\r\n    overflow: hidden;\r\n    display: inline-block;\r\n    padding: 2%;\r\n    width: 100vw;\r\n    display: flex;\r\n    justify-content: center;\r\n    -ms-grid-row: 2;\r\n    -ms-grid-column: 1;\r\n    grid-area: button\r\n  }\r\n\r\n.btn {\r\n    border: 2px solid gray;\r\n    color:white;\r\n    background-color:brown;\r\n    padding: 8px 20px;\r\n    border-radius: 8px;\r\n    font-size: 20px;\r\n    font-weight: bold;\r\n  }\r\n\r\n.upload-btn-wrapper input[type=file] {\r\n    font-size: 100px;\r\n    position: absolute;\r\n    left: 0;\r\n    top: 0;\r\n    opacity: 0;\r\n  }\r\n\r\n#help{\r\n    display: flex;\r\n    ALIGN-SELF: center;\r\n    margin-left: 1%;\r\n  }"
+module.exports = "#containerDiv{\r\n    display: -ms-grid;\r\n    display: grid;\r\n    align-items: center;\r\n        grid-template-areas: \r\n    \"header\"\r\n  \r\n    \"chars\"\r\n    \"image\"\r\n}\r\n\r\n#imgDiv{\r\n    \r\n    background-repeat: no-repeat;\r\n    border: 1px solid #bbb;\r\n    border: solid;\r\n    \r\n    -ms-grid-row: 3;\r\n    \r\n    -ms-grid-column: 1;\r\n    \r\n    grid-area: image;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    \r\n    right: 0;\r\n    top:30%;\r\n}\r\n\r\n.faceClass{\r\n    position: absolute;\r\n    border:solid;\r\n    \r\n}\r\n\r\n#charaDiv{\r\n    \r\n    top:30%;    \r\n    position: absolute;\r\n    justify-content: center;\r\n    align-items: center;\r\n    -ms-grid-row: 2;\r\n    -ms-grid-column: 1;\r\n    grid-area: chars;\r\n    font-size: xx-large;\r\n    background-color: #acd8ff;\r\n    height: auto;\r\n    width: auto;\r\n    left: 10%;\r\n    color: crimson;\r\n    padding: 1%\r\n}\r\n\r\n#error{\r\n    display: flex;\r\n    top:30%;\r\n    justify-content: center;\r\n    align-items: center;\r\n    -ms-grid-row: 2;\r\n    -ms-grid-column: 1;\r\n    grid-area: chars;\r\n    font-size: xx-large;\r\n}\r\n\r\n#titleDiv{\r\n    height: 100px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    font-size: -webkit-xxx-large;\r\n    background-color: black;\r\n    color: sandybrown;\r\n    font-family: sans-serif;\r\n    -ms-grid-row: 1;\r\n    -ms-grid-column: 1;\r\n    grid-area: header;\r\n}\r\n\r\n.btn {\r\n    border: 2px solid gray;\r\n    color:white;\r\n    background-color:brown;\r\n    padding: 8px 20px;\r\n    border-radius: 8px;\r\n    font-size: 20px;\r\n    font-weight: bold;\r\n  }\r\n\r\n#help{\r\n    display: flex;\r\n    ALIGN-SELF: center;\r\n    margin-left: 1%;\r\n  }\r\n\r\n.tagClass{\r\n    position: absolute;\r\n      border: solid 2px green;\r\n  }\r\n\r\n#fileCtrl{\r\n        display: flex;\r\n        justify-content: center;\r\n        margin: 1%;\r\n  }\r\n\r\n#fileContainer{\r\n      position: absolute;\r\n  }\r\n\r\n.footer{\r\n      position: fixed;\r\n      bottom: 0;\r\n      width: 100%;\r\n      border-top: solid\r\n  }"
 
 /***/ }),
 
@@ -84,7 +84,7 @@ module.exports = "#containerDiv{\r\n    display: -ms-grid;\r\n    display: grid;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n<div id=\"containerDiv\" class=\"js\">\r\n  <div id=\"titleDiv\">\r\n    Welcome to {{ title }}\r\n  </div>\r\n  \r\n    <!-- <div class=\"fileUploadWrapper\">\r\n        <input type=\"file\" class=\"fileUpload\" id=\"fileUpload\" #fileInput (change)=\"fileChange($event)\">\r\n        \r\n    </div> -->\r\n\r\n    <div class=\"upload-btn-wrapper\">\r\n      <button class=\"btn\" >Upload a file</button>\r\n      <input type=\"file\" name=\"myfile\" (change)=\"fileChange($event)\"/>\r\n      <span id=\"help\">Only .PNG files are supported.</span>\r\n    </div>\r\n    <div id=\"charaDiv\" *ngIf=\"faceData\">\r\n        <ul>\r\n          <li>You look awesome at age {{faceData.faceAttributes.age}}</li>\r\n          <li><div *ngIf=\"faceData.faceAttributes.glasses=='NoGlasses'; else glasses\">Good that you dont have glasses yet!</div>\r\n              <ng-template #glasses>Those {{faceData.faceAttributes.glasses}} look great on you.</ng-template> </li> \r\n        </ul>\r\n    </div>\r\n  <div  id=\"imgDiv\">\r\n      <img id=\"imageContainer\" [src]=\"localUrl\" > \r\n        <div *ngFor=\"let face of allFaces\"> \r\n          <div class=\"faceClass\" id=\"{{face.faceId}}\" [style.left.px]=\"face.faceLeft\" [style.top.px]=\"face.faceTop\" [style.width.px]= \"face.faceWidth\" [style.height.px]=\"face.faceHeight\" ></div>\r\n        </div>\r\n      </div>\r\n  <div *ngIf=\"error\" id=\"error\">{{errorMsg}}</div>\r\n\r\n  \r\n</div>\r\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n<div id=\"containerDiv\" class=\"js\">\r\n    <section class=\"hero is-info is-bold\">\r\n        <div class=\"hero-body\" style=\"text-align: center\">\r\n          <div class=\"container\">\r\n            <h1 class=\"title\">\r\n              Welcome to {{title}}\r\n            </h1>\r\n          \r\n          </div>\r\n        </div>\r\n      </section>\r\n    \r\n\r\n  \r\n    <!-- <div class=\"fileUploadWrapper\">\r\n        <input type=\"file\" class=\"fileUpload\" id=\"fileUpload\" #fileInput (change)=\"fileChange($event)\">\r\n        \r\n    </div> -->\r\n    <div  class=\"field\">\r\n      <div id=\"fileCtrl\" class=\"file is-large is-primary\">\r\n        <label class=\"file-label\">\r\n          <input class=\"file-input\" type=\"file\" name=\"myfile\" (change)=\"fileChange($event)\">\r\n          <span class=\"file-cta\">\r\n            <span class=\"file-icon\">\r\n              <i class=\"fas fa-upload\"></i>\r\n            </span>\r\n            <span class=\"file-label\">\r\n              Upload Image\r\n            </span>\r\n          </span>\r\n        </label>\r\n      </div>\r\n    </div>\r\n\r\n    <div id=\"charaDiv\" *ngIf=\"allFeatures.length>0\">\r\n        <ul *ngFor=\"let faceData of allFeatures\">\r\n          <li>Age : {{faceData.faceAttributes.age}}</li>\r\n          <li><div *ngIf=\"faceData.faceAttributes.glasses=='NoGlasses'; else glasses\">No glasses</div>\r\n              <ng-template #glasses>Glasses: {{faceData.faceAttributes.glasses}} </ng-template> </li> \r\n        </ul>\r\n    </div>\r\n  <div  id=\"imgDiv\">\r\n      <img id=\"imageContainer\" [src]=\"localUrl\"  > \r\n        <div *ngFor=\"let face of allFaces\"> \r\n          <div class=\"faceClass\" id=\"{{face.faceId}}\" [style.left.px]=\"face.faceLeft\" [style.top.px]=\"face.faceTop\" [style.width.px]= \"face.faceWidth\" [style.height.px]=\"face.faceHeight\" ></div>\r\n        </div>\r\n        <!-- <div *ngFor=\"let div of allTags\"> \r\n          <div class=\"tagClass\"  [style.left.px]=\"div.faceLeft\" [style.top.px]=\"div.faceTop\" [style.width.px]= \"div.faceWidth\" [style.height.px]=\"div.faceHeight\" ></div>\r\n        </div> -->\r\n      </div>\r\n  <div *ngIf=\"error\" id=\"error\">{{errorMsg}}</div>\r\n  <img [src]=\"faceUrl\"  /> \r\n  \r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -116,14 +116,18 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var AppComponent = /** @class */ (function () {
-    function AppComponent(appService, httpClient) {
+    function AppComponent(appService, httpClient, renderer) {
         this.appService = appService;
         this.httpClient = httpClient;
+        this.renderer = renderer;
         this.title = 'Face-it NOW';
         this.errorMsg = "";
         this.localUrl = "";
         this.totalFaces = 0;
         this.allFaces = [];
+        this.allTags = [];
+        this.allFeatures = [];
+        this.faceUrl = "";
     }
     AppComponent.prototype.ngOnInit = function () {
     };
@@ -131,26 +135,19 @@ var AppComponent = /** @class */ (function () {
         var _this = this;
         this.error = false;
         this.allFaces = [];
+        this.allFeatures = [];
         if (event.target.files && event.target.files.length > 0) {
-            var file_1 = event.target.files[0];
-            if (this.validateFile(file_1)) {
+            var file = event.target.files[0];
+            if (this.validateFile(file)) {
+                this.getFeatures(file);
                 var reader = new FileReader();
                 reader.onload = function (event) {
-                    _this.localUrl = event.target.result;
-                    _this.appService.detectFaces(file_1).subscribe(function (faces) {
-                        _this.totalFaces = faces.length;
-                        if (_this.totalFaces == 0) {
-                            _this.error = true;
-                            _this.errorMsg = "We could not detect faces in this picture. Please chhose another picture.";
-                        }
-                        else {
-                            for (var i = 0; i < faces.length; i++) {
-                                var faceInfo = faces[i];
-                                _this.pointFace(faceInfo);
-                            }
-                            document.getElementById("imgDiv").style.display = "block";
-                        }
-                    }, function (error) { _this.error = error; _this.errorMsg = "error occured"; });
+                    var filePath = event.target.result;
+                    var image = new Image();
+                    image.src = event.target.result;
+                    image.onload = function (event2) {
+                        _this.resizeImageAndDetect(image);
+                    };
                 };
                 reader.readAsDataURL(event.target.files[0]);
             }
@@ -167,11 +164,15 @@ var AppComponent = /** @class */ (function () {
         faceData.faceTop = otop + face.faceRectangle.top;
         faceData.faceWidth = face.faceRectangle.width;
         faceData.faceHeight = face.faceRectangle.height;
+        var tagDiv = new _faceData_model__WEBPACK_IMPORTED_MODULE_3__["FaceDataModel"]();
+        tagDiv.faceId = face.faceId;
+        tagDiv.faceLeft = oleft + face.faceRectangle.left;
+        tagDiv.faceTop = otop + face.faceRectangle.top;
+        tagDiv.faceWidth = face.faceRectangle.width;
+        tagDiv.faceHeight = face.faceRectangle.height;
+        tagDiv.faceTop = tagDiv.faceTop + 20;
         this.allFaces.push(faceData);
-        // document.getElementById("face").style.left = oleft+face.faceRectangle.left + "px";
-        // document.getElementById("face").style.top = otop+face.faceRectangle.top + "px";
-        // document.getElementById("face").style.width = face.faceRectangle.width + "px";
-        // document.getElementById("face").style.height = face.faceRectangle.height + "px";
+        this.allTags.push(tagDiv);
     };
     AppComponent.prototype.showFaces = function () {
         this.faceData.array.forEach(function (element) {
@@ -187,6 +188,62 @@ var AppComponent = /** @class */ (function () {
         else
             return true;
     };
+    AppComponent.prototype.resizeImageAndDetect = function (image) {
+        var _this = this;
+        var canvas = document.createElement("canvas");
+        var context = canvas.getContext("2d");
+        if (image.width > 500)
+            canvas.width = 500;
+        else
+            canvas.width = image.width;
+        if (image.height > 500)
+            canvas.height = 500;
+        else
+            canvas.height = image.height;
+        context.drawImage(image, 0, 0, image.width, image.height, 0, 0, canvas.width, canvas.height);
+        var img = new Image();
+        img.src = canvas.toDataURL();
+        this.localUrl = canvas.toDataURL();
+        canvas.toBlob((function (blb) { _this.detectFace(blb); }));
+    };
+    AppComponent.prototype.detectFace = function (blob) {
+        var _this = this;
+        this.appService.detectFaces(blob).subscribe(function (faces) {
+            _this.totalFaces = faces.length;
+            if (_this.totalFaces == 0) {
+                _this.error = true;
+                _this.errorMsg = "We could not detect faces in this picture. Please choose another picture.";
+            }
+            else {
+                for (var i = 0; i < faces.length; i++) {
+                    var faceInfo = faces[i];
+                    _this.pointFace(faceInfo);
+                }
+                document.getElementById("imgDiv").style.display = "block";
+            }
+        }, function (error) { _this.error = error; _this.errorMsg = "error occured"; });
+    };
+    AppComponent.prototype.getFeatures = function (file) {
+        var _this = this;
+        this.appService.detectFaces(file).subscribe(function (faces) {
+            _this.totalFaces = faces.length;
+            if (_this.totalFaces == 0) {
+                _this.error = true;
+                _this.errorMsg = "We could not detect faces in this picture. Please choose another picture.";
+            }
+            else {
+                for (var i = 0; i < faces.length; i++) {
+                    var faceInfo = faces[i];
+                    var faceFeatureData = new _faceData_model__WEBPACK_IMPORTED_MODULE_3__["FaceDataModel"]();
+                    faceFeatureData.faceAttributes = faceInfo.faceAttributes;
+                    _this.allFeatures.push(faceFeatureData);
+                }
+                document.getElementById("imgDiv").style.display = "block";
+            }
+        }, function (error) { _this.error = error; _this.errorMsg = "error occured"; });
+    };
+    AppComponent.prototype.tagFace = function () {
+    };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('fileInput'),
         __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"])
@@ -201,7 +258,7 @@ var AppComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
             styles: [__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")]
         }),
-        __metadata("design:paramtypes", [src_app_apicaller_service__WEBPACK_IMPORTED_MODULE_1__["ApicallerService"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+        __metadata("design:paramtypes", [src_app_apicaller_service__WEBPACK_IMPORTED_MODULE_1__["ApicallerService"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], _angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer"]])
     ], AppComponent);
     return AppComponent;
 }());

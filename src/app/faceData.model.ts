@@ -5,4 +5,5 @@ export class FaceDataModel{
     public faceWidth:number;
     public faceHeight:number;
     public styles:any;
+    public faceAttributes:any;
 }

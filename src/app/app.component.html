@@ -1,33 +1,56 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div id="containerDiv" class="js">
-  <div id="titleDiv">
-    Welcome to {{ title }}
-  </div>
+    <section class="hero is-info is-bold">
+        <div class="hero-body" style="text-align: center">
+          <div class="container">
+            <h1 class="title">
+              Welcome to {{title}}
+            </h1>
+          
+          </div>
+        </div>
+      </section>
+    
+
   
     <!-- <div class="fileUploadWrapper">
         <input type="file" class="fileUpload" id="fileUpload" #fileInput (change)="fileChange($event)">
         
     </div> -->
-
-    <div class="upload-btn-wrapper">
-      <button class="btn" >Upload a file</button>
-      <input type="file" name="myfile" (change)="fileChange($event)"/>
-      <span id="help">Only .PNG files are supported.</span>
+    <div  class="field">
+      <div id="fileCtrl" class="file is-large is-primary">
+        <label class="file-label">
+          <input class="file-input" type="file" name="myfile" (change)="fileChange($event)">
+          <span class="file-cta">
+            <span class="file-icon">
+              <i class="fas fa-upload"></i>
+            </span>
+            <span class="file-label">
+              Upload Image
+            </span>
+          </span>
+        </label>
+      </div>
     </div>
-    <div id="charaDiv" *ngIf="faceData">
-        <ul>
-          <li>You look awesome at age {{faceData.faceAttributes.age}}</li>
-          <li><div *ngIf="faceData.faceAttributes.glasses=='NoGlasses'; else glasses">Good that you dont have glasses yet!</div>
-              <ng-template #glasses>Those {{faceData.faceAttributes.glasses}} look great on you.</ng-template> </li> 
+
+    <div id="charaDiv" *ngIf="allFeatures.length>0">
+        <ul *ngFor="let faceData of allFeatures">
+          <li>Age : {{faceData.faceAttributes.age}}</li>
+          <li><div *ngIf="faceData.faceAttributes.glasses=='NoGlasses'; else glasses">No glasses</div>
+              <ng-template #glasses>Glasses: {{faceData.faceAttributes.glasses}} </ng-template> </li> 
         </ul>
     </div>
   <div  id="imgDiv">
-      <img id="imageContainer" [src]="localUrl" > 
+      <img id="imageContainer" [src]="localUrl"  > 
         <div *ngFor="let face of allFaces"> 
           <div class="faceClass" id="{{face.faceId}}" [style.left.px]="face.faceLeft" [style.top.px]="face.faceTop" [style.width.px]= "face.faceWidth" [style.height.px]="face.faceHeight" ></div>
         </div>
+        <!-- <div *ngFor="let div of allTags"> 
+          <div class="tagClass"  [style.left.px]="div.faceLeft" [style.top.px]="div.faceTop" [style.width.px]= "div.faceWidth" [style.height.px]="div.faceHeight" ></div>
+        </div> -->
       </div>
   <div *ngIf="error" id="error">{{errorMsg}}</div>
-
+  <img [src]="faceUrl"  /> 
   
 </div>
+
