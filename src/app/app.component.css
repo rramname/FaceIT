@@ -9,21 +9,17 @@
 }
 
 #imgDiv{
-    
     background-repeat: no-repeat;
-    border: 1px solid #bbb;
-    border: solid;
-    
     grid-area: image;
     margin-left: auto;
     margin-right: auto;
+    width: 40vw;
     
-    right: 0;
-    top:30%;
 }
 .faceClass{
     position: absolute;
     border:solid;
+    
     
 }
 #charaDiv{
@@ -100,3 +96,34 @@
       width: 100%;
       border-top: solid
   }
+
+  .imageInfo{
+      display: grid;
+      grid-template-areas: 
+      "image divider tags"
+      
+ }
+
+  #tagDiv{
+    grid-area: tags;
+    padding: 1%;
+    width: 40vw;
+ 
+  }
+  .taggedface{
+      height: 10vh;
+      width: 10vw;
+  }
+
+  #imageContainer{
+      align-self: center;
+  }
+
+  #divider{
+    grid-area: divider;
+    width: 0.5vw;
+    display: flex;
+    justify-self: center;
+    background-color: cornflowerblue
+  }
+  

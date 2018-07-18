@@ -21,6 +21,8 @@ export class AppComponent {
     this.error = false;
     this.allFaces = [];
     this.allFeatures = [];
+    this.tagImaged=[];
+    this.imageBlob=null;
     if (event.target.files && event.target.files.length > 0) {
       let file = event.target.files[0];
       if (this.validateFile(file)) {
@@ -109,10 +111,10 @@ export class AppComponent {
     var img = new Image();
     img.src = canvas.toDataURL();
     this.localUrl = canvas.toDataURL();
+    //canvas.toBlob((blb => { this.tagFace(blb) }))
+    this.imageBlob=canvas;
+    
     canvas.toBlob((blb => { this.detectFace(blb) }))
-
-
-   
 
   }
 
@@ -130,7 +132,10 @@ export class AppComponent {
         else {
           for (let i = 0; i < faces.length; i++) {
             let faceInfo = faces[i];
+            console.log('got points')
+            console.log(faceInfo);
             this.pointFace(faceInfo);
+            this.tagFace(faceInfo)
           }
           document.getElementById("imgDiv").style.display = "block";
         }
@@ -149,11 +154,13 @@ export class AppComponent {
           this.errorMsg = "We could not detect faces in this picture. Please choose another picture."
         }
         else {
-
+          
           for (let i = 0; i < faces.length; i++) {
             let faceInfo = faces[i];
+            
             let faceFeatureData: FaceDataModel = new FaceDataModel();
             faceFeatureData.faceAttributes = faceInfo.faceAttributes;
+            
             this.allFeatures.push(faceFeatureData);
           }
           document.getElementById("imgDiv").style.display = "block";
@@ -163,8 +170,36 @@ export class AppComponent {
     )
   }
 
-  private tagFace() {
-
+  private tagFace(imageInfo) {
+    console.log(imageInfo);
+    let image=this.imageBlob;
+    var canvas2 = document.createElement("canvas");
+    var context2 = canvas2.getContext("2d");
+    canvas2.width  = 130;
+    canvas2.height = 130;
+    // context2.drawImage(image,
+    //   194,
+    //   175,
+    //   130,
+    //   130,
+    //   0,
+    //   0,
+    //   130,
+    //   130
+    // );
+    context2.drawImage(image,
+      imageInfo.faceRectangle.left,
+      imageInfo.faceRectangle.top,
+        imageInfo.faceRectangle.width,
+        imageInfo.faceRectangle.height,
+        0,
+        0,
+        100,
+        100
+      );
+    this.faceUrl = canvas2.toDataURL();
+    this.tagImaged.push({url:canvas2.toDataURL(),features:imageInfo.faceAttributes})
+    console.log(this.tagImaged)
   }
 
   title = 'Face-it NOW';
@@ -177,4 +212,6 @@ export class AppComponent {
   allTags: Array<FaceDataModel> = [];
   allFeatures: Array<FaceDataModel> = [];
 faceUrl:String="";
+imageBlob:HTMLCanvasElement;
+tagImaged:Array<any>=[];
 }
