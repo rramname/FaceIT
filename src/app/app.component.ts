@@ -23,6 +23,7 @@ export class AppComponent {
     this.allFeatures = [];
     this.tagImaged=[];
     this.imageBlob=null;
+    this.localUrl="";
     if (event.target.files && event.target.files.length > 0) {
       let file = event.target.files[0];
       if (this.validateFile(file)) {
@@ -78,12 +79,12 @@ export class AppComponent {
 
   }
   private validateFile(file: any): boolean {
-    if (file.type !== "image/png") {
-      this.error = true;
-      this.errorMsg = "File format not supported."
-      return false;
-    }
-    else
+    // if (file.type !== "image/png") {
+    //   this.error = true;
+    //   this.errorMsg = "File format not supported."
+    //   return false;
+    // }
+    // else
       return true;
   }
 
@@ -124,6 +125,7 @@ export class AppComponent {
 
     this.appService.detectFaces(blob).subscribe(
       (faces: Array<any>) => {
+        console.log(faces);
         this.totalFaces = faces.length;
         if (this.totalFaces == 0) {
           this.error = true;
@@ -148,8 +150,13 @@ export class AppComponent {
 
     this.appService.detectFaces(file).subscribe(
       (faces: Array<any>) => {
+        console.log(faces);
+        if(faces["error"]){
+          this.error = true;
+          this.errorMsg = "Error: "+faces["error"].code;// We could not detect faces in this picture. Please choose another picture."
+        }
         this.totalFaces = faces.length;
-        if (this.totalFaces == 0) {
+        if (this.totalFaces == 0 ) {
           this.error = true;
           this.errorMsg = "We could not detect faces in this picture. Please choose another picture."
         }

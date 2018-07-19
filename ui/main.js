@@ -84,7 +84,7 @@ module.exports = "#containerDiv{\r\n    display: -ms-grid;\r\n    display: grid;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n<div id=\"containerDiv\" class=\"js\">\r\n  <section class=\"hero is-info is-bold\">\r\n    <div class=\"hero-body\" style=\"text-align: center\">\r\n      <div class=\"container\">\r\n        <h1 class=\"title\">\r\n          Welcome to {{title}}\r\n        </h1>\r\n\r\n      </div>\r\n    </div>\r\n  </section>\r\n\r\n  <!-- <div class=\"fileUploadWrapper\">\r\n        <input type=\"file\" class=\"fileUpload\" id=\"fileUpload\" #fileInput (change)=\"fileChange($event)\">\r\n        \r\n    </div> -->\r\n  <div class=\"field\">\r\n    <div id=\"fileCtrl\" class=\"file is-large is-primary\">\r\n      <label class=\"file-label\">\r\n        <input class=\"file-input\" type=\"file\" name=\"myfile\" (change)=\"fileChange($event)\">\r\n        <span class=\"file-cta\">\r\n          <span class=\"file-icon\">\r\n            <i class=\"fas fa-upload\"></i>\r\n          </span>\r\n          <span class=\"file-label\">\r\n            Upload Image\r\n          </span>\r\n        </span>\r\n      </label>\r\n    </div>\r\n  </div>\r\n\r\n  \r\n  <div class=\"imageInfo\">\r\n    <div id=\"imgDiv\">\r\n      <img id=\"imageContainer\" [src]=\"localUrl\" />\r\n      <div *ngFor=\"let face of allFaces\">\r\n        <div class=\"faceClass\" id=\"{{face.faceId}}\" [style.left.px]=\"face.faceLeft\" [style.top.px]=\"face.faceTop\" [style.width.px]=\"face.faceWidth\"\r\n          [style.height.px]=\"face.faceHeight\"></div>\r\n      </div>\r\n      <!-- <div *ngFor=\"let div of allTags\"> \r\n          <div class=\"tagClass\"  [style.left.px]=\"div.faceLeft\" [style.top.px]=\"div.faceTop\" [style.width.px]= \"div.faceWidth\" [style.height.px]=\"div.faceHeight\" ></div>\r\n        </div> -->\r\n    </div>\r\n    <div id=\"divider\"></div>\r\n    <div id=\"tagDiv\">\r\n        <div *ngIf=\"tagImaged.length>0\">\r\n        <ul *ngFor=\"let faceData of tagImaged\">\r\n          \r\n           <li style=\"display: flex;align-items: center;\"><img class=\"taggedface\" [src]=\"faceData.url\"  /><b> Age :</b> {{faceData.features.age}} / <b> Glasses: </b>{{faceData.features.glasses}}</li>\r\n       \r\n        </ul>\r\n      </div>\r\n    </div>\r\n    <div *ngIf=\"error\" id=\"error\">{{errorMsg}}</div>\r\n  </div>\r\n\r\n</div>"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n<div id=\"containerDiv\" class=\"js\">\r\n  <section class=\"hero is-info is-bold\">\r\n    <div class=\"hero-body\" style=\"text-align: center\">\r\n      <div class=\"container\">\r\n        <h1 class=\"title\">\r\n          Welcome to {{title}}\r\n        </h1>\r\n\r\n      </div>\r\n    </div>\r\n  </section>\r\n\r\n  <!-- <div class=\"fileUploadWrapper\">\r\n        <input type=\"file\" class=\"fileUpload\" id=\"fileUpload\" #fileInput (change)=\"fileChange($event)\">\r\n        \r\n    </div> -->\r\n  <div class=\"field\">\r\n    <div id=\"fileCtrl\" class=\"file is-large is-primary\">\r\n      <label class=\"file-label\">\r\n        <input class=\"file-input\" type=\"file\" name=\"myfile\" (change)=\"fileChange($event)\">\r\n        <span class=\"file-cta\">\r\n          <span class=\"file-icon\">\r\n            <i class=\"fas fa-upload\"></i>\r\n          </span>\r\n          <span class=\"file-label\">\r\n            Upload Image\r\n          </span>\r\n        </span>\r\n      </label>\r\n    </div>\r\n  </div>\r\n  <div *ngIf=\"error\" id=\"error\" style=\"color: red; padding: 1%\">{{errorMsg}}</div>\r\n  \r\n  <div class=\"imageInfo\">\r\n    <div id=\"imgDiv\">\r\n      <img id=\"imageContainer\" [src]=\"localUrl\" />\r\n      <div *ngFor=\"let face of allFaces\">\r\n        <div class=\"faceClass\" id=\"{{face.faceId}}\" [style.left.px]=\"face.faceLeft\" [style.top.px]=\"face.faceTop\" [style.width.px]=\"face.faceWidth\"\r\n          [style.height.px]=\"face.faceHeight\"></div>\r\n      </div>\r\n      <!-- <div *ngFor=\"let div of allTags\"> \r\n          <div class=\"tagClass\"  [style.left.px]=\"div.faceLeft\" [style.top.px]=\"div.faceTop\" [style.width.px]= \"div.faceWidth\" [style.height.px]=\"div.faceHeight\" ></div>\r\n        </div> -->\r\n    </div>\r\n    <div id=\"divider\"></div>\r\n    <div id=\"tagDiv\">\r\n        <div *ngIf=\"tagImaged.length>0\">\r\n        <ul *ngFor=\"let faceData of tagImaged\">\r\n          \r\n           <li style=\"display: flex;align-items: center;\"><img class=\"taggedface\" [src]=\"faceData.url\"  /><b> Age :</b> {{faceData.features.age}} / <b> Glasses: </b>{{faceData.features.glasses}}</li>\r\n       \r\n        </ul>\r\n      </div>\r\n    </div>\r\n   \r\n  </div>\r\n\r\n</div>"
 
 /***/ }),
 
@@ -139,6 +139,7 @@ var AppComponent = /** @class */ (function () {
         this.allFeatures = [];
         this.tagImaged = [];
         this.imageBlob = null;
+        this.localUrl = "";
         if (event.target.files && event.target.files.length > 0) {
             var file = event.target.files[0];
             if (this.validateFile(file)) {
@@ -183,13 +184,13 @@ var AppComponent = /** @class */ (function () {
         });
     };
     AppComponent.prototype.validateFile = function (file) {
-        if (file.type !== "image/png") {
-            this.error = true;
-            this.errorMsg = "File format not supported.";
-            return false;
-        }
-        else
-            return true;
+        // if (file.type !== "image/png") {
+        //   this.error = true;
+        //   this.errorMsg = "File format not supported."
+        //   return false;
+        // }
+        // else
+        return true;
     };
     AppComponent.prototype.resizeImageAndDetect = function (image) {
         var _this = this;
@@ -214,6 +215,7 @@ var AppComponent = /** @class */ (function () {
     AppComponent.prototype.detectFace = function (blob) {
         var _this = this;
         this.appService.detectFaces(blob).subscribe(function (faces) {
+            console.log(faces);
             _this.totalFaces = faces.length;
             if (_this.totalFaces == 0) {
                 _this.error = true;
@@ -234,6 +236,11 @@ var AppComponent = /** @class */ (function () {
     AppComponent.prototype.getFeatures = function (file) {
         var _this = this;
         this.appService.detectFaces(file).subscribe(function (faces) {
+            console.log(faces);
+            if (faces["error"]) {
+                _this.error = true;
+                _this.errorMsg = "Error: " + faces["error"].code; // We could not detect faces in this picture. Please choose another picture."
+            }
             _this.totalFaces = faces.length;
             if (_this.totalFaces == 0) {
                 _this.error = true;

@@ -30,7 +30,7 @@
       </label>
     </div>
   </div>
-
+  <div *ngIf="error" id="error" style="color: red; padding: 1%">{{errorMsg}}</div>
   
   <div class="imageInfo">
     <div id="imgDiv">
@@ -53,7 +53,7 @@
         </ul>
       </div>
     </div>
-    <div *ngIf="error" id="error">{{errorMsg}}</div>
+   
   </div>
 
 </div>
