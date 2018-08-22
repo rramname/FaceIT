@@ -8,11 +8,11 @@ const port=process.env.PORT || 3000
 
 const app=express();
 
-const API_KEY=process.env.Sub_KEY
+const API_KEY= process.env.Sub_KEY
 app.use(cors());
 app.use(express.static("ui"))
 
-app.get("/iisnode/server/home",function(req,resp){
+app.get("/",function(req,resp){
     resp.send("Hello")
 })
 app.post("/getFaceData",function(req,resp){
@@ -34,7 +34,7 @@ app.post("/getFaceData",function(req,resp){
 })
 
 app.get("/verify/:faceId",function(req,resp){
-    console.log(req);
+    console.log(req.params.faceId);
     let rbody={
         "faceId1": "c8471146-acea-48a3-8d07-b09620fff1fe",
         "faceId2": req.params.faceId
@@ -46,17 +46,18 @@ app.get("/verify/:faceId",function(req,resp){
         headers:{
             'Content-Type':'application/json',
             'Ocp-Apim-Subscription-Key':API_KEY
-        }
+        },
+        json: true // <-- Add this line
     }
-    request.post(options,(req,response)=>{
-        console.log(response)
-       //resp.send(JSON.parse(response.body))
+    request.post(options,(reqs,response)=>{
+       
+       resp.send(JSON.parse(response.body.isIdentical))
     })
     
 })
 
-app.listen(process.env.PORT, () => {
-	console.log('listening')
+app.listen(3000, () => {
+	console.log('listening'+port.toString())
 })
 
 //app.listen(port,function(){console.log('server started')});
