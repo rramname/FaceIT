@@ -51,7 +51,7 @@ var ApicallerService = /** @class */ (function () {
         this.http = http;
     }
     ApicallerService.prototype.detectFaces = function (data) {
-        return this.http.post("https://faceapicaller.herokuapp.com/getFaceData", data);
+        return this.http.post("https://tagtheface.herokuapp.com/getFaceData", data);
     };
     ApicallerService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -73,7 +73,7 @@ var ApicallerService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "#imgDiv{\r\n    position: absolute;\r\n    background-repeat: no-repeat;\r\n    border: 1px solid #bbb;\r\n    border: solid;\r\n    background-color: cadetblue;\r\n    left: 100px;\r\n    top:200px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n#face{\r\n    position: absolute;\r\n    border:solid;\r\n    \r\n}\r\n#titleDiv{\r\n    height: 100px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    font-size: -webkit-xxx-large;\r\n    background-color: black;\r\n    color: sandybrown;\r\n    font-family: sans-serif;\r\n}\r\n.upload-btn-wrapper {\r\n    position: relative;\r\n    overflow: hidden;\r\n    display: inline-block;\r\n    padding: 2%;\r\n    width: 100vw;\r\n    display: flex;\r\n    justify-content: center;\r\n  }\r\n.btn {\r\n    border: 2px solid gray;\r\n    color:white;\r\n    background-color:brown;\r\n    padding: 8px 20px;\r\n    border-radius: 8px;\r\n    font-size: 20px;\r\n    font-weight: bold;\r\n  }\r\n.upload-btn-wrapper input[type=file] {\r\n    font-size: 100px;\r\n    position: absolute;\r\n    left: 0;\r\n    top: 0;\r\n    opacity: 0;\r\n  }\r\n\r\n  "
+module.exports = "#containerDiv{\r\n    display: -ms-grid;\r\n    display: grid;\r\n    align-items: center;\r\n        grid-template-areas: \r\n    \"header\"\r\n  \r\n    \"chars\"\r\n    \"image\"\r\n}\r\n\r\n#imgDiv{\r\n    background-repeat: no-repeat;\r\n    -ms-grid-row: 1;\r\n    -ms-grid-column: 1;\r\n    grid-area: image;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    width: 40vw;\r\n    \r\n}\r\n\r\n.faceClass{\r\n    position: absolute;\r\n    border:solid;\r\n    \r\n    \r\n}\r\n\r\n#charaDiv{\r\n    \r\n    top:30%;    \r\n    position: absolute;\r\n    justify-content: center;\r\n    align-items: center;\r\n    -ms-grid-row: 2;\r\n    -ms-grid-column: 1;\r\n    grid-area: chars;\r\n    font-size: xx-large;\r\n    background-color: #acd8ff;\r\n    height: auto;\r\n    width: auto;\r\n    left: 10%;\r\n    color: crimson;\r\n    padding: 1%\r\n}\r\n\r\n#error{\r\n    display: flex;\r\n    top:30%;\r\n    justify-content: center;\r\n    align-items: center;\r\n    -ms-grid-row: 2;\r\n    -ms-grid-column: 1;\r\n    grid-area: chars;\r\n    font-size: xx-large;\r\n}\r\n\r\n#titleDiv{\r\n    height: 100px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    font-size: -webkit-xxx-large;\r\n    background-color: black;\r\n    color: sandybrown;\r\n    font-family: sans-serif;\r\n    -ms-grid-row: 1;\r\n    -ms-grid-column: 1;\r\n    grid-area: header;\r\n}\r\n\r\n.btn {\r\n    border: 2px solid gray;\r\n    color:white;\r\n    background-color:brown;\r\n    padding: 8px 20px;\r\n    border-radius: 8px;\r\n    font-size: 20px;\r\n    font-weight: bold;\r\n  }\r\n\r\n#help{\r\n    display: flex;\r\n    ALIGN-SELF: center;\r\n    margin-left: 1%;\r\n  }\r\n\r\n.tagClass{\r\n    position: absolute;\r\n      border: solid 2px green;\r\n  }\r\n\r\n#fileCtrl{\r\n        display: flex;\r\n        justify-content: center;\r\n        margin: 1%;\r\n  }\r\n\r\n#fileContainer{\r\n      position: absolute;\r\n  }\r\n\r\n.footer{\r\n      position: fixed;\r\n      bottom: 0;\r\n      width: 100%;\r\n      border-top: solid\r\n  }\r\n\r\n.imageInfo{\r\n      display: -ms-grid;\r\n      display: grid;\r\n          grid-template-areas: \r\n      \"image divider tags\"\r\n      \r\n }\r\n\r\n#tagDiv{\r\n    -ms-grid-row: 1;\r\n    -ms-grid-column: 3;\r\n    grid-area: tags;\r\n    padding: 1%;\r\n    width: 40vw;\r\n \r\n  }\r\n\r\n.taggedface{\r\n      height: 10vh;\r\n      width: 10vw;\r\n  }\r\n\r\n#imageContainer{\r\n      -ms-grid-row-align: center;\r\n          align-self: center;\r\n  }\r\n\r\n#divider{\r\n    -ms-grid-row: 1;\r\n    -ms-grid-column: 2;\r\n    grid-area: divider;\r\n    width: 0.5vw;\r\n    display: flex;\r\n    justify-self: center;\r\n    background-color: cornflowerblue\r\n  }\r\n  "
 
 /***/ }),
 
@@ -84,7 +84,7 @@ module.exports = "#imgDiv{\r\n    position: absolute;\r\n    background-repeat: 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div id=\"containerDiv\" class=\"js\">\n  <div id=\"titleDiv\">\n    Welcome to {{ title }}\n  </div>\n  <div id=\"content\">\n    <!-- <div class=\"fileUploadWrapper\">\n        <input type=\"file\" class=\"fileUpload\" id=\"fileUpload\" #fileInput (change)=\"fileChange($event)\">\n        \n    </div> -->\n\n    <div class=\"upload-btn-wrapper\">\n      <button class=\"btn\" >Upload a file</button>\n      <input type=\"file\" name=\"myfile\" (change)=\"fileChange($event)\"/>\n    </div>\n\n  <div id=\"imgDiv\"><img class=\"imageContainer\" [src]=\"localUrl\" >  <div id=\"face\"></div></div>\n</div>\n  \n</div>\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n<div id=\"containerDiv\" class=\"js\">\r\n  <section class=\"hero is-info is-bold\">\r\n    <div class=\"hero-body\" style=\"text-align: center\">\r\n      <div class=\"container\">\r\n        <h1 class=\"title\">\r\n          Welcome to {{title}}\r\n        </h1>\r\n\r\n      </div>\r\n    </div>\r\n  </section>\r\n\r\n  <!-- <div class=\"fileUploadWrapper\">\r\n        <input type=\"file\" class=\"fileUpload\" id=\"fileUpload\" #fileInput (change)=\"fileChange($event)\">\r\n        \r\n    </div> -->\r\n  <div class=\"field\">\r\n    <div id=\"fileCtrl\" class=\"file is-large is-primary\">\r\n      <label class=\"file-label\">\r\n        <input class=\"file-input\" type=\"file\" name=\"myfile\" (change)=\"fileChange($event)\">\r\n        <span class=\"file-cta\">\r\n          <span class=\"file-icon\">\r\n            <i class=\"fas fa-upload\"></i>\r\n          </span>\r\n          <span class=\"file-label\">\r\n            Upload Image\r\n          </span>\r\n        </span>\r\n      </label>\r\n    </div>\r\n  </div>\r\n  <div *ngIf=\"error\" id=\"error\" style=\"color: red; padding: 1%\">{{errorMsg}}</div>\r\n  \r\n  <div class=\"imageInfo\">\r\n    <div id=\"imgDiv\">\r\n      <img id=\"imageContainer\" [src]=\"localUrl\" />\r\n      <div *ngFor=\"let face of allFaces\">\r\n        <div class=\"faceClass\" id=\"{{face.faceId}}\" [style.left.px]=\"face.faceLeft\" [style.top.px]=\"face.faceTop\" [style.width.px]=\"face.faceWidth\"\r\n          [style.height.px]=\"face.faceHeight\"></div>\r\n      </div>\r\n      <!-- <div *ngFor=\"let div of allTags\"> \r\n          <div class=\"tagClass\"  [style.left.px]=\"div.faceLeft\" [style.top.px]=\"div.faceTop\" [style.width.px]= \"div.faceWidth\" [style.height.px]=\"div.faceHeight\" ></div>\r\n        </div> -->\r\n    </div>\r\n    <div id=\"divider\"></div>\r\n    <div id=\"tagDiv\">\r\n        <div *ngIf=\"tagImaged.length>0\">\r\n        <ul *ngFor=\"let faceData of tagImaged\">\r\n          \r\n           <li style=\"display: flex;align-items: center;\"><img class=\"taggedface\" [src]=\"faceData.url\"  /><b> Age :</b> {{faceData.features.age}} / <b> Glasses: </b>{{faceData.features.glasses}}</li>\r\n       \r\n        </ul>\r\n      </div>\r\n    </div>\r\n   \r\n  </div>\r\n\r\n</div>"
 
 /***/ }),
 
@@ -101,6 +101,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var src_app_apicaller_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/apicaller.service */ "./src/app/apicaller.service.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _faceData_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./faceData.model */ "./src/app/faceData.model.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -113,34 +114,170 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var AppComponent = /** @class */ (function () {
-    function AppComponent(appService, httpClient) {
+    function AppComponent(appService, httpClient, renderer) {
         this.appService = appService;
         this.httpClient = httpClient;
-        this.title = 'Face-it';
+        this.renderer = renderer;
+        this.title = 'Face-it NOW';
+        this.errorMsg = "";
         this.localUrl = "";
+        this.totalFaces = 0;
+        this.allFaces = [];
+        this.allTags = [];
+        this.allFeatures = [];
+        this.faceUrl = "";
+        this.tagImaged = [];
     }
     AppComponent.prototype.ngOnInit = function () {
     };
     AppComponent.prototype.fileChange = function (event) {
         var _this = this;
+        this.error = false;
+        this.allFaces = [];
+        this.allFeatures = [];
+        this.tagImaged = [];
+        this.imageBlob = null;
+        this.localUrl = "";
         if (event.target.files && event.target.files.length > 0) {
-            var file_1 = event.target.files[0];
-            var reader = new FileReader();
-            reader.onload = function (event) {
-                _this.localUrl = event.target.result;
-                _this.appService.detectFaces(file_1).subscribe(function (face) {
-                    _this.pointFace(face);
-                });
-            };
-            reader.readAsDataURL(event.target.files[0]);
+            var file = event.target.files[0];
+            if (this.validateFile(file)) {
+                this.getFeatures(file);
+                var reader = new FileReader();
+                reader.onload = function (event) {
+                    var filePath = event.target.result;
+                    var image = new Image();
+                    image.src = event.target.result;
+                    image.onload = function (event2) {
+                        _this.resizeImageAndDetect(image);
+                    };
+                };
+                reader.readAsDataURL(event.target.files[0]);
+            }
+        }
+        else {
         }
     };
     AppComponent.prototype.pointFace = function (face) {
-        document.getElementById("face").style.left = face[0].faceRectangle.left + "px";
-        document.getElementById("face").style.top = face[0].faceRectangle.top + "px";
-        document.getElementById("face").style.width = face[0].faceRectangle.width + "px";
-        document.getElementById("face").style.height = face[0].faceRectangle.height + "px";
+        var faceData = new _faceData_model__WEBPACK_IMPORTED_MODULE_3__["FaceDataModel"]();
+        var oleft = document.getElementById("imageContainer").offsetLeft;
+        var otop = document.getElementById("imageContainer").offsetTop;
+        faceData.faceId = face.faceId;
+        faceData.faceLeft = oleft + face.faceRectangle.left;
+        faceData.faceTop = otop + face.faceRectangle.top;
+        faceData.faceWidth = face.faceRectangle.width;
+        faceData.faceHeight = face.faceRectangle.height;
+        var tagDiv = new _faceData_model__WEBPACK_IMPORTED_MODULE_3__["FaceDataModel"]();
+        tagDiv.faceId = face.faceId;
+        tagDiv.faceLeft = oleft + face.faceRectangle.left;
+        tagDiv.faceTop = otop + face.faceRectangle.top;
+        tagDiv.faceWidth = face.faceRectangle.width;
+        tagDiv.faceHeight = face.faceRectangle.height;
+        tagDiv.faceTop = tagDiv.faceTop + 20;
+        this.allFaces.push(faceData);
+        this.allTags.push(tagDiv);
+    };
+    AppComponent.prototype.showFaces = function () {
+        this.faceData.array.forEach(function (element) {
+            document.getElementById(element.faceId).style.display = "block";
+        });
+    };
+    AppComponent.prototype.validateFile = function (file) {
+        // if (file.type !== "image/png") {
+        //   this.error = true;
+        //   this.errorMsg = "File format not supported."
+        //   return false;
+        // }
+        // else
+        return true;
+    };
+    AppComponent.prototype.resizeImageAndDetect = function (image) {
+        var _this = this;
+        var canvas = document.createElement("canvas");
+        var context = canvas.getContext("2d");
+        if (image.width > 500)
+            canvas.width = 500;
+        else
+            canvas.width = image.width;
+        if (image.height > 500)
+            canvas.height = 500;
+        else
+            canvas.height = image.height;
+        context.drawImage(image, 0, 0, image.width, image.height, 0, 0, canvas.width, canvas.height);
+        var img = new Image();
+        img.src = canvas.toDataURL();
+        this.localUrl = canvas.toDataURL();
+        //canvas.toBlob((blb => { this.tagFace(blb) }))
+        this.imageBlob = canvas;
+        canvas.toBlob((function (blb) { _this.detectFace(blb); }));
+    };
+    AppComponent.prototype.detectFace = function (blob) {
+        var _this = this;
+        this.appService.detectFaces(blob).subscribe(function (faces) {
+            console.log(faces);
+            _this.totalFaces = faces.length;
+            if (_this.totalFaces == 0) {
+                _this.error = true;
+                _this.errorMsg = "We could not detect faces in this picture. Please choose another picture.";
+            }
+            else {
+                for (var i = 0; i < faces.length; i++) {
+                    var faceInfo = faces[i];
+                    console.log('got points');
+                    console.log(faceInfo);
+                    _this.pointFace(faceInfo);
+                    _this.tagFace(faceInfo);
+                }
+                document.getElementById("imgDiv").style.display = "block";
+            }
+        }, function (error) { _this.error = error; _this.errorMsg = "error occured"; });
+    };
+    AppComponent.prototype.getFeatures = function (file) {
+        var _this = this;
+        this.appService.detectFaces(file).subscribe(function (faces) {
+            console.log(faces);
+            if (faces["error"]) {
+                _this.error = true;
+                _this.errorMsg = "Error: " + faces["error"].code; // We could not detect faces in this picture. Please choose another picture."
+            }
+            _this.totalFaces = faces.length;
+            if (_this.totalFaces == 0) {
+                _this.error = true;
+                _this.errorMsg = "We could not detect faces in this picture. Please choose another picture.";
+            }
+            else {
+                for (var i = 0; i < faces.length; i++) {
+                    var faceInfo = faces[i];
+                    var faceFeatureData = new _faceData_model__WEBPACK_IMPORTED_MODULE_3__["FaceDataModel"]();
+                    faceFeatureData.faceAttributes = faceInfo.faceAttributes;
+                    _this.allFeatures.push(faceFeatureData);
+                }
+                document.getElementById("imgDiv").style.display = "block";
+            }
+        }, function (error) { _this.error = error; _this.errorMsg = "error occured"; });
+    };
+    AppComponent.prototype.tagFace = function (imageInfo) {
+        console.log(imageInfo);
+        var image = this.imageBlob;
+        var canvas2 = document.createElement("canvas");
+        var context2 = canvas2.getContext("2d");
+        canvas2.width = 130;
+        canvas2.height = 130;
+        // context2.drawImage(image,
+        //   194,
+        //   175,
+        //   130,
+        //   130,
+        //   0,
+        //   0,
+        //   130,
+        //   130
+        // );
+        context2.drawImage(image, imageInfo.faceRectangle.left, imageInfo.faceRectangle.top, imageInfo.faceRectangle.width, imageInfo.faceRectangle.height, 0, 0, 100, 100);
+        this.faceUrl = canvas2.toDataURL();
+        this.tagImaged.push({ url: canvas2.toDataURL(), features: imageInfo.faceAttributes });
+        console.log(this.tagImaged);
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('fileInput'),
@@ -156,7 +293,7 @@ var AppComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
             styles: [__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")]
         }),
-        __metadata("design:paramtypes", [src_app_apicaller_service__WEBPACK_IMPORTED_MODULE_1__["ApicallerService"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+        __metadata("design:paramtypes", [src_app_apicaller_service__WEBPACK_IMPORTED_MODULE_1__["ApicallerService"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], _angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer"]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -217,6 +354,26 @@ var AppModule = /** @class */ (function () {
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/faceData.model.ts":
+/*!***********************************!*\
+  !*** ./src/app/faceData.model.ts ***!
+  \***********************************/
+/*! exports provided: FaceDataModel */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FaceDataModel", function() { return FaceDataModel; });
+var FaceDataModel = /** @class */ (function () {
+    function FaceDataModel() {
+    }
+    return FaceDataModel;
 }());
 
 
@@ -322,7 +479,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Rohit\RnD\FaceIt\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Rohit\RnD\FaceITNow\faceIT\src\main.ts */"./src/main.ts");
 
 
 /***/ })

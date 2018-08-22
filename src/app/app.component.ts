@@ -1,6 +1,7 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, Renderer } from '@angular/core';
 import { ApicallerService } from 'src/app/apicaller.service';
 import { HttpClient } from '@angular/common/http';
+import { FaceDataModel } from './faceData.model';
 
 @Component({
   selector: 'app-root',
@@ -10,58 +11,214 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent {
   @ViewChild('fileInput') inputEl: ElementRef;
   @ViewChild('img') img: ElementRef;
-  constructor(private appService: ApicallerService, private httpClient: HttpClient) {
+  constructor(private appService: ApicallerService, private httpClient: HttpClient, private renderer: Renderer) {
 
   }
   ngOnInit() {
 
   }
   fileChange(event: any) {
-
+    this.error = false;
+    this.allFaces = [];
+    this.allFeatures = [];
+    this.tagImaged=[];
+    this.imageBlob=null;
+    this.localUrl="";
     if (event.target.files && event.target.files.length > 0) {
       let file = event.target.files[0];
       if (this.validateFile(file)) {
-        let reader = new FileReader();
+        this.getFeatures(file);
+       let reader = new FileReader();
         reader.onload = (event: any) => {
-          this.localUrl = event.target.result;
+          var filePath: string = event.target.result;
+          var image = new Image();
 
-          this.appService.detectFaces(file).subscribe(
-            (face) => {
-              this.faceData = face;
-              console.log(this.faceData);
-              this.pointFace(face);
-            },
-            error => { this.error = error; this.errorMsg = "error occured" }
-          )
+          image.src = event.target.result;
+
+          image.onload = (event2: any) => {
+            this.resizeImageAndDetect(image);
+            
+          }
+
         }
         reader.readAsDataURL(event.target.files[0]);
       }
     }
-    else{
+    else {
 
     }
   }
   private pointFace(face) {
-    document.getElementById("face").style.left = face[0].faceRectangle.left + "px";
-    document.getElementById("face").style.top = face[0].faceRectangle.top + "px";
-    document.getElementById("face").style.width = face[0].faceRectangle.width + "px";
-    document.getElementById("face").style.height = face[0].faceRectangle.height + "px";
+    let faceData: FaceDataModel = new FaceDataModel();
+    let oleft = document.getElementById("imageContainer").offsetLeft;
+    let otop = document.getElementById("imageContainer").offsetTop;
+    faceData.faceId = face.faceId;
+    faceData.faceLeft = oleft + face.faceRectangle.left;
+    faceData.faceTop = otop + face.faceRectangle.top;
+    faceData.faceWidth = face.faceRectangle.width;
+    faceData.faceHeight = face.faceRectangle.height;
+
+
+    let tagDiv: FaceDataModel = new FaceDataModel();
+    tagDiv.faceId = face.faceId;
+    tagDiv.faceLeft = oleft + face.faceRectangle.left;
+    tagDiv.faceTop = otop + face.faceRectangle.top;
+    tagDiv.faceWidth = face.faceRectangle.width;
+    tagDiv.faceHeight = face.faceRectangle.height;
+
+    tagDiv.faceTop = tagDiv.faceTop + 20;
+    this.allFaces.push(faceData);
+    this.allTags.push(tagDiv);
+
+    
   }
-  private validateFile(file:any):boolean{
-    if(file.type!=="image/png")
-    {
-      
-      this.error=true;
-      this.errorMsg="File format not supported."
-      
-      return false;
-    }
-      else
+  private showFaces() {
+    this.faceData.array.forEach(element => {
+      document.getElementById(element.faceId).style.display = "block";
+    });
+
+  }
+  private validateFile(file: any): boolean {
+    // if (file.type !== "image/png") {
+    //   this.error = true;
+    //   this.errorMsg = "File format not supported."
+    //   return false;
+    // }
+    // else
       return true;
   }
-  title = 'Face-it';
+
+  private resizeImageAndDetect(image) {
+    var canvas = document.createElement("canvas");
+    var context = canvas.getContext("2d");
+    if (image.width > 500)
+      canvas.width = 500;
+    else
+      canvas.width = image.width;
+    if (image.height > 500)
+      canvas.height = 500
+    else
+      canvas.height = image.height;
+    context.drawImage(image,
+      0,
+      0,
+      image.width,
+      image.height,
+      0,
+      0,
+      canvas.width,
+      canvas.height
+    );
+    var img = new Image();
+    img.src = canvas.toDataURL();
+    this.localUrl = canvas.toDataURL();
+    //canvas.toBlob((blb => { this.tagFace(blb) }))
+    this.imageBlob=canvas;
+    
+    canvas.toBlob((blb => { this.detectFace(blb) }))
+
+  }
+
+
+
+  private detectFace(blob: Blob) {
+
+    this.appService.detectFaces(blob).subscribe(
+      (faces: Array<any>) => {
+        console.log(faces);
+        this.totalFaces = faces.length;
+        if (this.totalFaces == 0) {
+          this.error = true;
+          this.errorMsg = "We could not detect faces in this picture. Please choose another picture."
+        }
+        else {
+          for (let i = 0; i < faces.length; i++) {
+            let faceInfo = faces[i];
+            console.log('got points')
+            console.log(faceInfo);
+            this.pointFace(faceInfo);
+            this.tagFace(faceInfo)
+          }
+          document.getElementById("imgDiv").style.display = "block";
+        }
+      },
+      error => { this.error = error; this.errorMsg = "error occured" }
+    )
+  }
+
+  private getFeatures(file) {
+
+    this.appService.detectFaces(file).subscribe(
+      (faces: Array<any>) => {
+        console.log(faces);
+        if(faces["error"]){
+          this.error = true;
+          this.errorMsg = "Error: "+faces["error"].code;// We could not detect faces in this picture. Please choose another picture."
+        }
+        this.totalFaces = faces.length;
+        if (this.totalFaces == 0 ) {
+          this.error = true;
+          this.errorMsg = "We could not detect faces in this picture. Please choose another picture."
+        }
+        else {
+          
+          for (let i = 0; i < faces.length; i++) {
+            let faceInfo = faces[i];
+            
+            let faceFeatureData: FaceDataModel = new FaceDataModel();
+            faceFeatureData.faceAttributes = faceInfo.faceAttributes;
+            
+            this.allFeatures.push(faceFeatureData);
+          }
+          document.getElementById("imgDiv").style.display = "block";
+        }
+      },
+      error => { this.error = error; this.errorMsg = "error occured" }
+    )
+  }
+
+  private tagFace(imageInfo) {
+    console.log(imageInfo);
+    let image=this.imageBlob;
+    var canvas2 = document.createElement("canvas");
+    var context2 = canvas2.getContext("2d");
+    canvas2.width  = 130;
+    canvas2.height = 130;
+    // context2.drawImage(image,
+    //   194,
+    //   175,
+    //   130,
+    //   130,
+    //   0,
+    //   0,
+    //   130,
+    //   130
+    // );
+    context2.drawImage(image,
+      imageInfo.faceRectangle.left,
+      imageInfo.faceRectangle.top,
+        imageInfo.faceRectangle.width,
+        imageInfo.faceRectangle.height,
+        0,
+        0,
+        100,
+        100
+      );
+    this.faceUrl = canvas2.toDataURL();
+    this.tagImaged.push({url:canvas2.toDataURL(),features:imageInfo.faceAttributes})
+    console.log(this.tagImaged)
+  }
+
+  title = 'Face-it NOW';
   faceData: any;
   error: any;
   errorMsg: string = "";
   localUrl: string = "";
+  totalFaces: number = 0;
+  allFaces: Array<FaceDataModel> = [];
+  allTags: Array<FaceDataModel> = [];
+  allFeatures: Array<FaceDataModel> = [];
+faceUrl:String="";
+imageBlob:HTMLCanvasElement;
+tagImaged:Array<any>=[];
 }

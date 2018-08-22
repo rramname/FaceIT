@@ -1,21 +1,50 @@
-#imgDiv{
-    position: absolute;
-    background-repeat: no-repeat;
-    border: 1px solid #bbb;
-    border: solid;
-    background-color: cadetblue;
-    left: 100px;
-    top:200px;
-    display: flex;
+#containerDiv{
+    display: grid;
     align-items: center;
-    justify-content: center;
+    grid-template-areas: 
+    "header"
+  
+    "chars"
+    "image"
 }
-#face{
+
+#imgDiv{
+    background-repeat: no-repeat;
+    grid-area: image;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40vw;
+    
+}
+.faceClass{
     position: absolute;
     border:solid;
     
+    
 }
-
+#charaDiv{
+    
+    top:30%;    
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    grid-area: chars;
+    font-size: xx-large;
+    background-color: #acd8ff;
+    height: auto;
+    width: auto;
+    left: 10%;
+    color: crimson;
+    padding: 1%
+}
+#error{
+    display: flex;
+    top:30%;
+    justify-content: center;
+    align-items: center;
+    grid-area: chars;
+    font-size: xx-large;
+}
 #titleDiv{
     height: 100px;
     display: flex;
@@ -25,17 +54,9 @@
     background-color: black;
     color: sandybrown;
     font-family: sans-serif;
+    grid-area: header;
 }
 
-.upload-btn-wrapper {
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
-    padding: 2%;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-  }
   
   .btn {
     border: 2px solid gray;
@@ -46,13 +67,63 @@
     font-size: 20px;
     font-weight: bold;
   }
-  
-  .upload-btn-wrapper input[type=file] {
-    font-size: 100px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
+
+
+  #help{
+    display: flex;
+    ALIGN-SELF: center;
+    margin-left: 1%;
   }
 
+  .tagClass{
+    position: absolute;
+      border: solid 2px green;
+  }
+
+  #fileCtrl{
+        display: flex;
+        justify-content: center;
+        margin: 1%;
+  }
+
+  #fileContainer{
+      position: absolute;
+  }
+
+  .footer{
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      border-top: solid
+  }
+
+  .imageInfo{
+      display: grid;
+      grid-template-areas: 
+      "image divider tags"
+      
+ }
+
+  #tagDiv{
+    grid-area: tags;
+    padding: 1%;
+    width: 40vw;
+ 
+  }
+  .taggedface{
+      height: 10vh;
+      width: 10vw;
+  }
+
+  #imageContainer{
+      align-self: center;
+  }
+
+  #divider{
+    grid-area: divider;
+    width: 0.5vw;
+    display: flex;
+    justify-self: center;
+    background-color: cornflowerblue
+  }
   

@@ -1,21 +1,59 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div id="containerDiv" class="js">
-  <div id="titleDiv">
-    Welcome to {{ title }}
-  </div>
-  <div id="content">
-    <!-- <div class="fileUploadWrapper">
+  <section class="hero is-info is-bold">
+    <div class="hero-body" style="text-align: center">
+      <div class="container">
+        <h1 class="title">
+          Welcome to {{title}}
+        </h1>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- <div class="fileUploadWrapper">
         <input type="file" class="fileUpload" id="fileUpload" #fileInput (change)="fileChange($event)">
         
     </div> -->
-
-    <div class="upload-btn-wrapper">
-      <button class="btn" >Upload a file</button>
-      <input type="file" name="myfile" (change)="fileChange($event)"/>
+  <div class="field">
+    <div id="fileCtrl" class="file is-large is-primary">
+      <label class="file-label">
+        <input class="file-input" type="file" name="myfile" (change)="fileChange($event)">
+        <span class="file-cta">
+          <span class="file-icon">
+            <i class="fas fa-upload"></i>
+          </span>
+          <span class="file-label">
+            Upload Image
+          </span>
+        </span>
+      </label>
     </div>
-
-  <div  id="imgDiv"><img class="imageContainer" [src]="localUrl" >  <div  id="face"></div></div>
-  <div *ngIf="error">{{errorMsg}}</div>
-</div>
+  </div>
+  <div *ngIf="error" id="error" style="color: red; padding: 1%">{{errorMsg}}</div>
   
+  <div class="imageInfo">
+    <div id="imgDiv">
+      <img id="imageContainer" [src]="localUrl" />
+      <div *ngFor="let face of allFaces">
+        <div class="faceClass" id="{{face.faceId}}" [style.left.px]="face.faceLeft" [style.top.px]="face.faceTop" [style.width.px]="face.faceWidth"
+          [style.height.px]="face.faceHeight"></div>
+      </div>
+      <!-- <div *ngFor="let div of allTags"> 
+          <div class="tagClass"  [style.left.px]="div.faceLeft" [style.top.px]="div.faceTop" [style.width.px]= "div.faceWidth" [style.height.px]="div.faceHeight" ></div>
+        </div> -->
+    </div>
+    <div id="divider"></div>
+    <div id="tagDiv">
+        <div *ngIf="tagImaged.length>0">
+        <ul *ngFor="let faceData of tagImaged">
+          
+           <li style="display: flex;align-items: center;"><img class="taggedface" [src]="faceData.url"  /><b> Age :</b> {{faceData.features.age}} / <b> Glasses: </b>{{faceData.features.glasses}}</li>
+       
+        </ul>
+      </div>
+    </div>
+   
+  </div>
+
 </div>

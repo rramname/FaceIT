@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* You can add global styles to this file, and also import other style files */\n"
+module.exports = "/* You can add global styles to this file, and also import other style files */\r\nhtml{\r\n background-color:#209cee3d\r\n}"
 
 /***/ }),
 
@@ -539,7 +539,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Rohit\RnD\FaceIt\src\styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! C:\Rohit\RnD\FaceITNow\faceIT\src\styles.css */"./src/styles.css");
 
 
 /***/ })
