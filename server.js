@@ -49,8 +49,8 @@ app.get("/verify/:faceId",function(req,resp){
         }
     }
     request.post(options,(req,response)=>{
-        
-       resp.send(JSON.parse(response.body))
+        console.log(response)
+       //resp.send(JSON.parse(response.body))
     })
     
 })
