@@ -56,7 +56,7 @@ app.get("/verify/:faceId",function(req,resp){
     
 })
 
-app.listen(3000, () => {
+app.listen(port, () => {
 	console.log('listening'+port.toString())
 })
 
