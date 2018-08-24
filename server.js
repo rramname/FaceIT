@@ -33,10 +33,10 @@ app.post("/getFaceData",function(req,resp){
     
 })
 
-app.post("/verify/:faceId",function(req,resp){
- 
+app.get("/verify/:faceId",function(req,resp){
+    console.log(req.params)
     let rbody={
-        "faceId1": "c8471146-acea-48a3-8d07-b09620fff1fe",
+        "faceId1": "748aa876-a622-4bbf-9907-5f003eddef67",
         "faceId2": req.params.faceId
     }
     var options={
@@ -45,12 +45,13 @@ app.post("/verify/:faceId",function(req,resp){
         method:'POST',
         headers:{
             'Content-Type':'application/json',
-            'Ocp-Apim-Subscription-Key':API_KEY
+            'Ocp-Apim-Subscription-Key':'c4f4f912aa61409e8794b34afeb42ea9'
         },
-        json: true // <-- Add this line
+        json: true 
     }
+    
     request.post(options,(reqs,response)=>{
-       
+        console.log(response.body.isIdentical);
        resp.send(JSON.parse(response.body.isIdentical))
     })
     
