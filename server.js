@@ -49,13 +49,13 @@ app.post("/verify",cors(),function(req,resp){
         body:rbody,
         method:'POST',
         headers:{
-            'Ocp-Apim-Subscription-Key':"c4f4f912aa61409e8794b34afeb42ea9"
+            'Ocp-Apim-Subscription-Key':API_KEY
         },
         json:true
     }
     
     request.post(options,(reqs,response)=>{
-        resp.send(JSON.parse(JSON.stringify(response.body[0])))
+        resp.send(JSON.parse(JSON.stringify(response.body)))
        //resp.send(false)
     })
     
