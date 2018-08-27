@@ -9,13 +9,18 @@ const port=process.env.PORT || 3000
 const app=express();
 
 const API_KEY= process.env.Sub_KEY
-app.use(cors());
-app.use(express.static("ui"))
-
+// app.use(cors());
+// app.use(express.static("ui"))
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+  
 app.get("/",function(req,resp){
     resp.send("Hello")
 })
-app.post("/getFaceData",function(req,resp){
+app.get("/getFaceData",function(req,resp){
     
     var options={
         uri:"https://eastus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceAttributes=age,glasses,emotion",
