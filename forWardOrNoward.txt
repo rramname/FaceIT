@@ -1,0 +1,37 @@
+create a group
+	https://eastus.api.cognitive.microsoft.com/face/v1.0/persongroups/wardbell
+	Req:
+		{
+			    "name": "wardbell"
+		}
+
+add a person profile
+	https://eastus.api.cognitive.microsoft.com/face/v1.0/persongroups/wardbell/persons
+	{
+ 		  "name": "wardbell"
+	}
+
+
+{
+    "personId": "1d9dd4ce-b912-4b6f-a674-3b0b16fb97ba"
+}
+
+
+add face
+https://eastus.api.cognitive.microsoft.com/face/v1.0/persongroups/wardbell/persons/1d9dd4ce-b912-4b6f-a674-3b0b16fb97ba/persistedFaces
+
+request: image
+
+response:
+	
+{
+    "persistedFaceId": "53b1091c-3df7-4df1-9681-7bc7a789cc35"
+}
+
+
+Train
+with person group ID : wardbell
+https://eastus.api.cognitive.microsoft.com/face/v1.0/persongroups/wardbell/train
+and image
+
+

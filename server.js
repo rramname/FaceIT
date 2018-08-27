@@ -16,10 +16,10 @@ const API_KEY= process.env.Sub_KEY
 // app.use(cors());
 // app.use(express.static("ui"))
 app.use(function(req, res, next) {
-    res.setHeader( "Access-Control-Allow-Origin", req.headers.origin );
-    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    res.header('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-    res.header('Access-Control-Allow-Credentials', true);
+    res.setHeader( "Access-Control-Allow-Origin", "*" );
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
     return next();
   });
   
@@ -45,14 +45,14 @@ app.post("/getFaceData",function(req,resp){
 })
 
 app.post("/verify",function(req,resp){
-    console.log(req.body.faceId)
+    console.log(req.body.faceIds)
     //resp.send("hello")
     let rbody={
-        "faceId1": "748aa876-a622-4bbf-9907-5f003eddef67",
-        "faceId2": req.body.faceId
+        "personGroupId":"wardbell",
+        "faceIds":[req.body.faceIds]
     }
     var options={
-        uri:"https://eastus.api.cognitive.microsoft.com/face/v1.0/verify",
+        uri:"https://eastus.api.cognitive.microsoft.com/face/v1.0/identify",
         body:rbody,
         method:'POST',
         headers:{
