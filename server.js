@@ -7,13 +7,17 @@ const port=process.env.PORT || 3000
 
 
 const app=express();
-
+let bodyParser = require('body-parser');
+app.use(bodyParser.json());
 const API_KEY= process.env.Sub_KEY
 // app.use(cors());
 // app.use(express.static("ui"))
 app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
     next();
   });
   
@@ -39,7 +43,7 @@ app.post("/getFaceData",function(req,resp){
 })
 
 app.get("/verify/:faceId",function(req,resp){
-    console.log(req.params)
+    //console.log(req.body)
     let rbody={
         "faceId1": "748aa876-a622-4bbf-9907-5f003eddef67",
         "faceId2": req.params.faceId
