@@ -33,7 +33,7 @@ app.post("/getFaceData",function(req,resp){
     
 })
 
-app.get("/verify/:faceId",function(req,resp){
+app.post("/verify/:faceId",function(req,resp){
     console.log(req.params)
     let rbody={
         "faceId1": "748aa876-a622-4bbf-9907-5f003eddef67",
