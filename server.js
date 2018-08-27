@@ -39,31 +39,31 @@ app.post("/getFaceData",function(req,resp){
 
 app.post("/verify",cors(),function(req,resp){
     console.log(req.body.faceIds)
-    resp.send(false)
-    //resp.send("hello")
-    // let rbody={
-    //     "personGroupId":"wardbell",
-    //     "faceIds":[req.body.faceIds]
-    // }
-    // var options={
-    //     uri:"https://eastus.api.cognitive.microsoft.com/face/v1.0/identify",
-    //     body:rbody,
-    //     method:'POST',
-    //     headers:{
-    //         'Content-Type':'application/json',
-    //         'Ocp-Apim-Subscription-Key':API_KEY
-    //     },
-    //     json: true 
-    // }
+   // resp.send(false)
     
-    // request.post(options,(reqs,response)=>{
-    //     var isMatching=false;
-    //     if(response.body[0].candidates[0].confidence==1)
-    //         isMatching=true;
-    //     //console.log(response.body.isIdentical);
-    //     //resp.send("Hello")
-    //    resp.send(JSON.parse(JSON.stringify(isMatching)))
-    // })
+    let rbody={
+        "personGroupId":"wardbell",
+        "faceIds":[req.body.faceIds]
+    }
+    var options={
+        uri:"https://eastus.api.cognitive.microsoft.com/face/v1.0/identify",
+        body:rbody,
+        method:'POST',
+        headers:{
+            'Content-Type':'application/json',
+            'Ocp-Apim-Subscription-Key':API_KEY
+        }
+        
+    }
+    
+    request.post(options,(reqs,response)=>{
+        var isMatching=false;
+        if(response.body[0].candidates[0].confidence==1)
+            isMatching=true;
+        //console.log(response.body.isIdentical);
+        //resp.send("Hello")
+       resp.send(JSON.parse(JSON.stringify(isMatching)))
+    })
     
 })
 
