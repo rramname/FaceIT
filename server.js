@@ -55,13 +55,14 @@ app.post("/verify",cors(),function(req,resp){
     }
     
     request.post(options,(reqs,response)=>{
-        var isMatching=false;
-        console.log(response.body)
-        if(response.body[0].candidates[0].confidence==1)
-            isMatching=true;
+        // var isMatching=false;
+        // console.log(response.body)
+        // if(response.body[0].candidates[0].confidence==1)
+        //     isMatching=true;
         //console.log(response.body.isIdentical);
         //resp.send("Hello")
-       resp.send(JSON.parse(JSON.stringify(isMatching)))
+       //resp.send(JSON.parse(JSON.stringify(isMatching)))
+       resp.send(false)
     })
     
 })
