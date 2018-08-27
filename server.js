@@ -63,8 +63,12 @@ app.post("/verify",function(req,resp){
     }
     
     request.post(options,(reqs,response)=>{
+        var isMatching=false;
+        if(response.body[0].candidates[0].confidence==1)
+            isMatching=true;
         //console.log(response.body.isIdentical);
-       resp.send(JSON.parse(JSON.stringify(response.body)))
+        //resp.send("Hello")
+       resp.send(JSON.parse(JSON.stringify(isMatching)))
     })
     
 })
