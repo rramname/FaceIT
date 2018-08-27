@@ -17,9 +17,9 @@ const API_KEY= process.env.Sub_KEY
 // app.use(express.static("ui"))
 app.use(function(req, res, next) {
     res.setHeader( "Access-Control-Allow-Origin", req.headers.origin );
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-    res.setHeader('Access-Control-Allow-Credentials', true);
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.header('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.header('Access-Control-Allow-Credentials', true);
     return next();
   });
   
