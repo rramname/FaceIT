@@ -39,8 +39,7 @@ app.post("/getFaceData",function(req,resp){
 
 app.post("/verify",cors(),function(req,resp){
     console.log(req.body.faceIds)
-   // resp.send(false)
-    
+   
     let rbody={
         "personGroupId":"wardbell",
         "faceIds":[req.body.faceIds]
@@ -50,14 +49,14 @@ app.post("/verify",cors(),function(req,resp){
         body:rbody,
         method:'POST',
         headers:{
-            'Content-Type':'application/json',
-            'Ocp-Apim-Subscription-Key':API_KEY
-        }
-        
+            'Ocp-Apim-Subscription-Key':"c4f4f912aa61409e8794b34afeb42ea9"
+        },
+        json:true
     }
     
     request.post(options,(reqs,response)=>{
         var isMatching=false;
+        console.log(response.body)
         if(response.body[0].candidates[0].confidence==1)
             isMatching=true;
         //console.log(response.body.isIdentical);
