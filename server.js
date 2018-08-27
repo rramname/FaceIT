@@ -37,7 +37,7 @@ app.post("/getFaceData",function(req,resp){
     
 })
 
-app.post("/verify",function(req,resp){
+app.post("/verify",cors(),function(req,resp){
     console.log(req.body.faceIds)
     //resp.send("hello")
     let rbody={
