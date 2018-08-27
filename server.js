@@ -37,12 +37,12 @@ app.post("/getFaceData",function(req,resp){
     
 })
 
-app.post("/verify",cors(),function(req,resp){
-    console.log(req.body.faceIds)
+app.get("/verify/:faceIds",cors(),function(req,resp){
+    console.log(req.params.faceIds)
    
     let rbody={
         "personGroupId":"wardbell",
-        "faceIds":[req.body.faceIds]
+        "faceIds":[req.params.faceIds]
     }
     var options={
         uri:"https://eastus.api.cognitive.microsoft.com/face/v1.0/identify",
@@ -55,7 +55,7 @@ app.post("/verify",cors(),function(req,resp){
     }
     
     request.post(options,(reqs,response)=>{
-        resp.send(JSON.parse(JSON.stringify(response)))
+        resp.send(JSON.parse(JSON.stringify(response.body)))
        //resp.send(false)
     })
     
