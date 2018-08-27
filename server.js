@@ -55,7 +55,7 @@ app.post("/verify",cors(),function(req,resp){
     }
     
     request.post(options,(reqs,response)=>{
-        resp.send(JSON.parse(response["body"]))
+        resp.send(JSON.parse(JSON.stringify(response)))
        //resp.send(false)
     })
     
