@@ -53,7 +53,7 @@ app.get("/verify/:faceId",function(req,resp){
         method:'POST',
         headers:{
             'Content-Type':'application/json',
-            'Ocp-Apim-Subscription-Key':'c4f4f912aa61409e8794b34afeb42ea9'
+            'Ocp-Apim-Subscription-Key':API_KEY
         },
         json: true 
     }
