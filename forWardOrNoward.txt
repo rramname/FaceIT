@@ -1,4 +1,4 @@
-create a group
+create a group (PUT)
 	https://eastus.api.cognitive.microsoft.com/face/v1.0/persongroups/wardbell
 	Req:
 		{
@@ -33,5 +33,52 @@ Train
 with person group ID : wardbell
 https://eastus.api.cognitive.microsoft.com/face/v1.0/persongroups/wardbell/train
 and image
+
+
+---------------------
+
+
+For rohit
+create a group (PUT)
+	https://eastus.api.cognitive.microsoft.com/face/v1.0/persongroups/rohitramname
+	Req:
+		{
+			    "name": "rohitramname"
+		}
+
+add person profile
+
+	POST
+	https://eastus.api.cognitive.microsoft.com/face/v1.0/persongroups/rohitramname/persons
+	{
+ 		  "name": "rohit"
+	}
+RESPONSE:
+{
+    "personId": "56b07d6d-784e-4240-8a81-e69b7d689785"
+}
+
+
+add Face:
+	(POST)
+	https://eastus.api.cognitive.microsoft.com/face/v1.0/persongroups/rohitramname/persons/56b07d6d-784e-4240-8a81-e69b7d689785/persistedFaces
+
+{
+    "persistedFaceId": "fa61d560-a9a4-4497-a25e-daa0e9f5dced"
+}
+	
+
+Train
+
+https://eastus.api.cognitive.microsoft.com/face/v1.0/persongroups/rohitramname/train
+
+Now its ready.
+
+detect:
+
+FaceId:4246a87e-ef89-4483-bd7c-caa86302c276
+
+
+
 
 
