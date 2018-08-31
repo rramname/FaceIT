@@ -61,6 +61,31 @@ app.get("/verify/:faceIds",cors(),function(req,resp){
     
 })
 
+app.get("/verifyrohit/:faceIds",cors(),function(req,resp){
+    console.log(req.params.faceIds)
+   
+    let rbody={
+        "faceId": req.params.faceIds,
+        "personId": "56b07d6d-784e-4240-8a81-e69b7d689785",
+        "personGroupId":"rohitramname"
+    }
+    var options={
+        uri:"https://eastus.api.cognitive.microsoft.com/face/v1.0/verify",
+        body:rbody,
+        method:'POST',
+        headers:{
+            'Ocp-Apim-Subscription-Key':API_KEY
+        },
+        json:true
+    }
+    
+    request.post(options,(reqs,response)=>{
+        resp.send(JSON.parse(JSON.stringify(response.body)))
+       //resp.send(false)
+    })
+    
+})
+
 app.listen(port, () => {
 	console.log('listening'+port.toString())
 })
